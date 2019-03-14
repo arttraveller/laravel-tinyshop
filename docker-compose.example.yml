@@ -1,0 +1,46 @@
+version: '2'
+services:
+    web:
+        build:
+            context: ./
+            dockerfile: docker/nginx.docker
+        image: nginx:1.10
+        ports:
+            - "8080:80"
+            - "8090:443"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/ssl:/etc/nginx/ssl
+        depends_on:
+            - php-fpm            
+
+
+    php-fpm:
+        build:
+            context: ./
+            dockerfile: docker/php-fpm.docker
+        environment:
+            - "DB_HOST=db"
+        depends_on:
+            - db
+        volumes:
+            - ./:/var/www
+            - ./docker/php-fpm/php.ini:/usr/local/etc/php/php.ini
+
+
+#    db:
+#        image: mysql:5.7
+#        ports:
+#            - "3306:3306"
+#        environment:
+#            - MYSQL_ROOT_PASSWORD=password
+#        volumes:
+#            - /path/to/your/docker/db/storage:/var/lib/mysql
+
+
+    db:
+        image: postgres:10
+        ports:
+            - "5432:5432"
+        volumes:
+            - /path/to/your/docker/db/storage:/var/lib/postgresql/data
