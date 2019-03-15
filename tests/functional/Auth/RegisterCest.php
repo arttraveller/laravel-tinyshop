@@ -1,6 +1,6 @@
 <?php
 
-use App\User;
+use App\Models\User;
 use Tests\functional\BaseFunctional;
 
 class RegisterCest extends BaseFunctional
