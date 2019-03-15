@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'Frontend\SiteController@index')->name('main_page');
-Route::get('/home', 'Frontend\SiteController@home')->name('home');
+Route::get('/home', 'Frontend\SiteController@home')->name('home')->middleware('verified');

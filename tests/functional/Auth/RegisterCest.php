@@ -22,12 +22,13 @@ class RegisterCest extends BaseFunctional
     }
 
 
-    public function testRegWithCorrectData(FunctionalTester $I)
+    public function testSuccessReg(FunctionalTester $I)
     {
         $this->register($I, 'John Doe', 'john-doe@example.com', 'password');
         $I->seeRecord('users', ['name' => 'John Doe', 'email' => 'john-doe@example.com']);
         $I->seeAuthentication();
     }
+
 
 
     protected function register(FunctionalTester $I, $name, $email, $password): void

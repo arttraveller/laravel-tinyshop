@@ -16,6 +16,7 @@ abstract class BackendController extends Controller
     {
         // TODO access only for admin
         $this->middleware('auth');
+        $this->middleware('verified');
     }
 
 }
