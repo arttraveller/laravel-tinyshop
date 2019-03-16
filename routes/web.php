@@ -15,3 +15,16 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', 'Frontend\SiteController@index')->name('main_page');
 Route::get('/home', 'Frontend\SiteController@home')->name('home')->middleware('verified');
+
+Route::group(
+    [
+        'prefix' => 'admin',
+        'as' => 'admin.',
+        'namespace' => 'Backend',
+        // TODO access only for admin
+        'middleware' => ['auth', 'verified'],
+    ],
+    function () {
+        Route::resource('users', 'UsersController');
+    }
+);
