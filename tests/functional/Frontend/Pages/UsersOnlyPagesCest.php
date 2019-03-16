@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\EUserRoles;
 use App\Models\User;
 use Tests\functional\BaseFunctional;
 
@@ -16,7 +17,8 @@ class UsersOnlyPagesCest extends BaseFunctional
             'email' => 'john-doe@example.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'created_at' => new DateTime(),
-            'updated_at' => new DateTime()
+            'updated_at' => new DateTime(),
+            'role_id' => EUserRoles::USER,
         ];
         $I->haveRecord(User::class, $this->userAttributes);
     }
