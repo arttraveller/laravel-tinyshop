@@ -21,8 +21,8 @@ Route::group(
         'prefix' => 'admin',
         'as' => 'admin.',
         'namespace' => 'Backend',
-        // TODO access only for admin
-        'middleware' => ['auth', 'verified'],
+        // Access only for admin
+        'middleware' => ['auth', 'verified', 'can:admin-access'],
     ],
     function () {
         Route::resource('users', 'UsersController');

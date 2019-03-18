@@ -4,7 +4,7 @@ use App\Enums\EUserRoles;
 use App\Models\User;
 use Tests\functional\BaseFunctional;
 
-class UsersOnlyPagesCest extends BaseFunctional
+class AdminOnlyPagesCest extends BaseFunctional
 {
 
     private $user;
@@ -24,30 +24,32 @@ class UsersOnlyPagesCest extends BaseFunctional
     }
 
 
-
-    public function checkUoPageAsGuest(FunctionalTester $I)
+    public function checkAdminPageAsGuest(FunctionalTester $I)
     {
-        $I->amOnPage('/home');
+        $I->amOnPage('/admin/users');
         $I->seeCurrentUrlEquals('/login');
     }
 
 
-    public function checkUoPageAsUnverifiedUser(FunctionalTester $I)
-    {
-        $this->login($I, $this->user->email, 'password');
-        $I->amOnPage('/home');
-        $I->see('Verify Your Email Address');
-    }
-
-
-
-    public function checkUoPageAsVerifiedUser(FunctionalTester $I)
+    public function checkAdminPageAsVerifiedUser(FunctionalTester $I)
     {
         $this->user->markEmailAsVerified();
 
         $this->login($I, $this->user->email, 'password');
-        $I->amOnPage('/home');
-        $I->see('Main page will be here ');
+        $I->amOnPage('/admin/users');
+        $I->seeResponseCodeIs(403);
+    }
+
+
+    public function checkAdminPageAsAdmin(FunctionalTester $I)
+    {
+        $this->user->markEmailAsVerified();
+        $this->user->role_id = EUserRoles::ADMIN;
+        $this->user->save();
+
+        $this->login($I, $this->user->email, 'password');
+        $I->amOnPage('/admin/users');
+        $I->seeResponseCodeIs(200);
     }
 
 }
