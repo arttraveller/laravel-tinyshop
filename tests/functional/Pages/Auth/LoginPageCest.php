@@ -3,7 +3,7 @@
 use App\Models\User;
 use Tests\functional\BaseFunctional;
 
-class LoginCest extends BaseFunctional
+class LoginPageCest extends BaseFunctional
 {
 
     public function testWrongCredentials(FunctionalTester $I)

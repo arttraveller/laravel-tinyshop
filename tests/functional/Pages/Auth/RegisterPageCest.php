@@ -3,7 +3,7 @@
 use App\Models\User;
 use Tests\functional\BaseFunctional;
 
-class RegisterCest extends BaseFunctional
+class RegisterPageCest extends BaseFunctional
 {
 
     public function _before(FunctionalTester $I)
@@ -31,7 +31,7 @@ class RegisterCest extends BaseFunctional
 
 
 
-    protected function register(FunctionalTester $I, $name, $email, $password): void
+    private function register(FunctionalTester $I, $name, $email, $password): void
     {
         $I->fillField('name', $name);
         $I->fillField('email', $email);

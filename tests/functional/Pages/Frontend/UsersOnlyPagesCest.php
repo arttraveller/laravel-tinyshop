@@ -7,7 +7,7 @@ use Tests\functional\BaseFunctional;
 class UsersOnlyPagesCest extends BaseFunctional
 {
 
-    protected $userAttributes;
+    private $userAttributes;
 
 
     public function _before(FunctionalTester $I)
@@ -30,7 +30,8 @@ class UsersOnlyPagesCest extends BaseFunctional
     }
 
 
-    protected function checkPage(FunctionalTester $I, $url)
+
+    private function checkPage(FunctionalTester $I, $url)
     {
         // Check as not logged user
         $I->amOnPage($url);
