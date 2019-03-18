@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\EUserRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @property int $id
@@ -43,5 +45,35 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * Register a new user.
+     *
+     * @param string $name
+     * @param string $email
+     * @param string $password
+     * @return User
+     */
+    public static function register(string $name, string $email, string $password): self
+    {
+        return self::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => Hash::make($password),
+            'role_id' => EUserRoles::USER,
+        ]);
+    }
+
+
+    /**
+     * Returns is the user administrator.
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role_id === EUserRoles::ADMIN;
+    }
 
 }
