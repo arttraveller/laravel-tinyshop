@@ -14,14 +14,25 @@
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'Frontend\SiteController@index')->name('main_page');
-Route::get('/home', 'Frontend\SiteController@home')->name('home')->middleware('verified');
 
+
+// Access only for logged in users
+Route::group(
+    [
+        'middleware' => ['auth', 'verified'],
+    ],
+    function () {
+        Route::get('/home', 'Frontend\SiteController@home')->name('home');
+    }
+);
+
+
+// Access only for admins
 Route::group(
     [
         'prefix' => 'admin',
         'as' => 'admin.',
         'namespace' => 'Backend',
-        // Access only for admin
         'middleware' => ['auth', 'verified', 'can:admin-access'],
     ],
     function () {
