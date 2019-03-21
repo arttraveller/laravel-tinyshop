@@ -13,7 +13,7 @@
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'Frontend\SiteController@index')->name('main_page');
+Route::get('/', 'Frontend\SiteController@index')->name('main');
 
 
 // Access only for logged in users
@@ -22,7 +22,7 @@ Route::group(
         'middleware' => ['auth', 'verified'],
     ],
     function () {
-        Route::get('/home', 'Frontend\SiteController@home')->name('home');
+        Route::get('/home', 'Frontend\SiteController@home');
     }
 );
 

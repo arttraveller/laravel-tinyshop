@@ -24,8 +24,7 @@ class SiteController extends FrontendController
      */
     public function home()
     {
-        // TODO temporary dummy
-        return redirect()->route('main_page');
+        return redirect()->route('main');
     }
 
 }

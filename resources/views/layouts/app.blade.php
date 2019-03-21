@@ -80,6 +80,8 @@
                 <div class="row">
                     <div class="col-12">
 
+                        @section('breadcrumbs', Breadcrumbs::render())
+                        @yield('breadcrumbs')
                         @yield('content')
 
                     </div>
