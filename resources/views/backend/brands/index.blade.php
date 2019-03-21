@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('backend.partials._nav')
+
     <table class="table table-bordered table-striped">
 
         <thead>
@@ -20,7 +22,7 @@
                     <td>{{ $brand->name }}</td>
                     <td>{{ $brand->slug }}</td>
                     <td class="grid-action-column">
-                        @include('backend.act-column', ['resource' => $brand, 'resourceRouteId' => 'brands'])
+                        @include('backend.partials._act-column', ['resource' => $brand, 'resourceRouteId' => 'brands'])
                     </td>
                 </tr>
             @endforeach

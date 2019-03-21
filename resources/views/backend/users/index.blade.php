@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('backend.partials._nav')
+
     <table class="table table-bordered table-striped">
 
         <thead>
