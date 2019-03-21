@@ -5,11 +5,11 @@
     <table class="table table-bordered table-striped">
 
         <thead>
-        <tr>
-            <th>{{ __('ID') }}</th>
-            <th>{{ __('Name') }}</th>
-            <th>{{ __('Email') }}</th>
-        </tr>
+            <tr>
+                <th>{{ __('ID') }}</th>
+                <th>{{ __('Name') }}</th>
+                <th>{{ __('Email') }}</th>
+            </tr>
         </thead>
 
         <tbody>

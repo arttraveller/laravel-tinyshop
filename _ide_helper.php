@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.4 on 2019-03-14 07:54:56.
+ * Generated for Laravel 5.8.4 on 2019-03-21 09:53:48.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1772,7 +1772,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\Models\User|null
+         * @return \App\Models\User|null 
          * @static 
          */ 
         public static function user()
@@ -1810,7 +1810,7 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\Models\User|false
+         * @return \App\Models\User|false 
          * @static 
          */ 
         public static function onceUsingId($id)
@@ -1879,7 +1879,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\Models\User|false
+         * @return \App\Models\User|false 
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
@@ -1946,7 +1946,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\Models\User
+         * @return \App\Models\User 
          * @static 
          */ 
         public static function getLastAttempted()
@@ -2057,7 +2057,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\Models\User|null
+         * @return \App\Models\User|null 
          * @static 
          */ 
         public static function getUser()
@@ -2107,7 +2107,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if current user is authenticated. If not, throw an exception.
          *
-         * @return \App\Models\User
+         * @return \App\Models\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
@@ -14412,6 +14412,1587 @@ namespace Illuminate\Support {
  
 }
 
+namespace Barryvdh\Debugbar { 
+
+    /**
+     * 
+     *
+     * @method static void alert(string $message)
+     * @method static void critical(string $message)
+     * @method static void debug(string $message)
+     * @method static void emergency(string $message)
+     * @method static void error(string $message)
+     * @method static void info(string $message)
+     * @method static void log(string $message)
+     * @method static void notice(string $message)
+     * @method static void warning(string $message)
+     * @see \Barryvdh\Debugbar\LaravelDebugbar
+     */ 
+    class Facade {
+        
+        /**
+         * Enable the Debugbar and boot, if not already booted.
+         *
+         * @static 
+         */ 
+        public static function enable()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->enable();
+        }
+        
+        /**
+         * Boot the debugbar (add collectors, renderer and listener)
+         *
+         * @static 
+         */ 
+        public static function boot()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->boot();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function shouldCollect($name, $default = false)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->shouldCollect($name, $default);
+        }
+        
+        /**
+         * Adds a data collector
+         *
+         * @param \Barryvdh\Debugbar\DataCollectorInterface $collector
+         * @throws DebugBarException
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function addCollector($collector)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addCollector($collector);
+        }
+        
+        /**
+         * Handle silenced errors
+         *
+         * @param $level
+         * @param $message
+         * @param string $file
+         * @param int $line
+         * @param array $context
+         * @throws \ErrorException
+         * @static 
+         */ 
+        public static function handleError($level, $message, $file = '', $line = 0, $context = array())
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->handleError($level, $message, $file, $line, $context);
+        }
+        
+        /**
+         * Starts a measure
+         *
+         * @param string $name Internal name, used to stop the measure
+         * @param string $label Public name
+         * @static 
+         */ 
+        public static function startMeasure($name, $label = null)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->startMeasure($name, $label);
+        }
+        
+        /**
+         * Stops a measure
+         *
+         * @param string $name
+         * @static 
+         */ 
+        public static function stopMeasure($name)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->stopMeasure($name);
+        }
+        
+        /**
+         * Adds an exception to be profiled in the debug bar
+         *
+         * @param \Exception $e
+         * @deprecated in favor of addThrowable
+         * @static 
+         */ 
+        public static function addException($e)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addException($e);
+        }
+        
+        /**
+         * Adds an exception to be profiled in the debug bar
+         *
+         * @param \Exception $e
+         * @static 
+         */ 
+        public static function addThrowable($e)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addThrowable($e);
+        }
+        
+        /**
+         * Returns a JavascriptRenderer for this instance
+         *
+         * @param string $baseUrl
+         * @param string $basePathng
+         * @return \Barryvdh\Debugbar\JavascriptRenderer 
+         * @static 
+         */ 
+        public static function getJavascriptRenderer($baseUrl = null, $basePath = null)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getJavascriptRenderer($baseUrl, $basePath);
+        }
+        
+        /**
+         * Modify the response and inject the debugbar (or data in headers)
+         *
+         * @param \Symfony\Component\HttpFoundation\Request $request
+         * @param \Symfony\Component\HttpFoundation\Response $response
+         * @return \Symfony\Component\HttpFoundation\Response 
+         * @static 
+         */ 
+        public static function modifyResponse($request, $response)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->modifyResponse($request, $response);
+        }
+        
+        /**
+         * Check if the Debugbar is enabled
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function isEnabled()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->isEnabled();
+        }
+        
+        /**
+         * Collects the data from the collectors
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function collect()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->collect();
+        }
+        
+        /**
+         * Injects the web debug toolbar into the given Response.
+         *
+         * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
+         * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
+         * @static 
+         */ 
+        public static function injectDebugbar($response)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->injectDebugbar($response);
+        }
+        
+        /**
+         * Disable the Debugbar
+         *
+         * @static 
+         */ 
+        public static function disable()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->disable();
+        }
+        
+        /**
+         * Adds a measure
+         *
+         * @param string $label
+         * @param float $start
+         * @param float $end
+         * @static 
+         */ 
+        public static function addMeasure($label, $start, $end)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addMeasure($label, $start, $end);
+        }
+        
+        /**
+         * Utility function to measure the execution of a Closure
+         *
+         * @param string $label
+         * @param \Closure $closure
+         * @static 
+         */ 
+        public static function measure($label, $closure)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->measure($label, $closure);
+        }
+        
+        /**
+         * Collect data in a CLI request
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function collectConsole()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->collectConsole();
+        }
+        
+        /**
+         * Adds a message to the MessagesCollector
+         * 
+         * A message can be anything from an object to a string
+         *
+         * @param mixed $message
+         * @param string $label
+         * @static 
+         */ 
+        public static function addMessage($message, $label = 'info')
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addMessage($message, $label);
+        }
+        
+        /**
+         * Checks if a data collector has been added
+         *
+         * @param string $name
+         * @return boolean 
+         * @static 
+         */ 
+        public static function hasCollector($name)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->hasCollector($name);
+        }
+        
+        /**
+         * Returns a data collector
+         *
+         * @param string $name
+         * @return \DebugBar\DataCollectorInterface 
+         * @throws DebugBarException
+         * @static 
+         */ 
+        public static function getCollector($name)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getCollector($name);
+        }
+        
+        /**
+         * Returns an array of all data collectors
+         *
+         * @return \DebugBar\array[DataCollectorInterface] 
+         * @static 
+         */ 
+        public static function getCollectors()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getCollectors();
+        }
+        
+        /**
+         * Sets the request id generator
+         *
+         * @param \DebugBar\RequestIdGeneratorInterface $generator
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setRequestIdGenerator($generator)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setRequestIdGenerator($generator);
+        }
+        
+        /**
+         * 
+         *
+         * @return \DebugBar\RequestIdGeneratorInterface 
+         * @static 
+         */ 
+        public static function getRequestIdGenerator()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getRequestIdGenerator();
+        }
+        
+        /**
+         * Returns the id of the current request
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getCurrentRequestId()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getCurrentRequestId();
+        }
+        
+        /**
+         * Sets the storage backend to use to store the collected data
+         *
+         * @param \DebugBar\StorageInterface $storage
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setStorage($storage = null)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setStorage($storage);
+        }
+        
+        /**
+         * 
+         *
+         * @return \DebugBar\StorageInterface 
+         * @static 
+         */ 
+        public static function getStorage()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getStorage();
+        }
+        
+        /**
+         * Checks if the data will be persisted
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function isDataPersisted()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->isDataPersisted();
+        }
+        
+        /**
+         * Sets the HTTP driver
+         *
+         * @param \DebugBar\HttpDriverInterface $driver
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setHttpDriver($driver)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setHttpDriver($driver);
+        }
+        
+        /**
+         * Returns the HTTP driver
+         * 
+         * If no http driver where defined, a PhpHttpDriver is automatically created
+         *
+         * @return \DebugBar\HttpDriverInterface 
+         * @static 
+         */ 
+        public static function getHttpDriver()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getHttpDriver();
+        }
+        
+        /**
+         * Returns collected data
+         * 
+         * Will collect the data if none have been collected yet
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getData()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getData();
+        }
+        
+        /**
+         * Returns an array of HTTP headers containing the data
+         *
+         * @param string $headerName
+         * @param integer $maxHeaderLength
+         * @return array 
+         * @static 
+         */ 
+        public static function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096, $maxTotalHeaderLength = 250000)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getDataAsHeaders($headerName, $maxHeaderLength, $maxTotalHeaderLength);
+        }
+        
+        /**
+         * Sends the data through the HTTP headers
+         *
+         * @param bool $useOpenHandler
+         * @param string $headerName
+         * @param integer $maxHeaderLength
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function sendDataInHeaders($useOpenHandler = null, $headerName = 'phpdebugbar', $maxHeaderLength = 4096)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->sendDataInHeaders($useOpenHandler, $headerName, $maxHeaderLength);
+        }
+        
+        /**
+         * Stacks the data in the session for later rendering
+         *
+         * @static 
+         */ 
+        public static function stackData()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->stackData();
+        }
+        
+        /**
+         * Checks if there is stacked data in the session
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function hasStackedData()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->hasStackedData();
+        }
+        
+        /**
+         * Returns the data stacked in the session
+         *
+         * @param boolean $delete Whether to delete the data in the session
+         * @return array 
+         * @static 
+         */ 
+        public static function getStackedData($delete = true)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getStackedData($delete);
+        }
+        
+        /**
+         * Sets the key to use in the $_SESSION array
+         *
+         * @param string $ns
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setStackDataSessionNamespace($ns)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setStackDataSessionNamespace($ns);
+        }
+        
+        /**
+         * Returns the key used in the $_SESSION array
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStackDataSessionNamespace()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getStackDataSessionNamespace();
+        }
+        
+        /**
+         * Sets whether to only use the session to store stacked data even
+         * if a storage is enabled
+         *
+         * @param boolean $enabled
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setStackAlwaysUseSessionStorage($enabled = true)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setStackAlwaysUseSessionStorage($enabled);
+        }
+        
+        /**
+         * Checks if the session is always used to store stacked data
+         * even if a storage is enabled
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function isStackAlwaysUseSessionStorage()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->isStackAlwaysUseSessionStorage();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetSet($key, $value)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetSet($key, $value);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetGet($key)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetGet($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetExists($key)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetExists($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetUnset($key)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetUnset($key);
+        }
+         
+    }
+ 
+}
+
+namespace Laracasts\Flash { 
+
+    /**
+     * 
+     *
+     */ 
+    class Flash {
+        
+        /**
+         * Flash an information message.
+         *
+         * @param string|null $message
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function info($message = null)
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->info($message);
+        }
+        
+        /**
+         * Flash a success message.
+         *
+         * @param string|null $message
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function success($message = null)
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->success($message);
+        }
+        
+        /**
+         * Flash an error message.
+         *
+         * @param string|null $message
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function error($message = null)
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->error($message);
+        }
+        
+        /**
+         * Flash a warning message.
+         *
+         * @param string|null $message
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function warning($message = null)
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->warning($message);
+        }
+        
+        /**
+         * Flash a general message.
+         *
+         * @param string|null $message
+         * @param string|null $level
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function message($message = null, $level = null)
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->message($message, $level);
+        }
+        
+        /**
+         * Flash an overlay modal.
+         *
+         * @param string|null $message
+         * @param string $title
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function overlay($message = null, $title = 'Notice')
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->overlay($message, $title);
+        }
+        
+        /**
+         * Add an "important" flash to the session.
+         *
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function important()
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->important();
+        }
+        
+        /**
+         * Clear all registered messages.
+         *
+         * @return \Laracasts\Flash\FlashNotifier 
+         * @static 
+         */ 
+        public static function clear()
+        {
+                        /** @var \Laracasts\Flash\FlashNotifier $instance */
+                        return $instance->clear();
+        }
+         
+    }
+ 
+}
+
+namespace NetoJose\Bootstrap4Forms { 
+
+    /**
+     * 
+     *
+     */ 
+    class Bootstrap4FormsFacade {
+        
+        /**
+         * Open the form
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function open()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->open();
+        }
+        
+        /**
+         * Close the form
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function close()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->close();
+        }
+        
+        /**
+         * Set a prefix id for all inputs
+         *
+         * @param string $prefix
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function idPrefix($prefix = '')
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->idPrefix($prefix);
+        }
+        
+        /**
+         * Set multipart attribute for a form
+         *
+         * @param bool $multipart
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function multipart($multipart = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->multipart($multipart);
+        }
+        
+        /**
+         * Set a method attribute for the form
+         *
+         * @param string $method
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function method($method)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->method($method);
+        }
+        
+        /**
+         * Set get method for the form attribute
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function get()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->get();
+        }
+        
+        /**
+         * Set post method for the form attribute
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function post()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->post();
+        }
+        
+        /**
+         * Set put method for the form attribute
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function put()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->put();
+        }
+        
+        /**
+         * Set patch method for the form attribute
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function patch()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->patch();
+        }
+        
+        /**
+         * Set delete method for the form attribute
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function delete()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->delete();
+        }
+        
+        /**
+         * Fill the form values
+         *
+         * @param array|object $data
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function fill($data)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->fill($data);
+        }
+        
+        /**
+         * Set locale file for inputs translations
+         *
+         * @param string $path
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function locale($path)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->locale($path);
+        }
+        
+        /**
+         * Set inline form to inline inputs
+         *
+         * @param bool $inline
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function inlineForm($inline = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->inlineForm($inline);
+        }
+        
+        /**
+         * Set autocomplete value ('on', 'off', or one of the permitted values)
+         * 
+         * If set on the form, only 'on' or 'off' are valid and are inherited by input fields.
+         * The inherited value can be overridden on individual input fields
+         * 
+         * See: https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill
+         *
+         * @param string $value
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function autocomplete($value = 'on')
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->autocomplete($value);
+        }
+        
+        /**
+         * Set inline style for checkbox and radio inputs
+         *
+         * @param bool $inline
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function inline($inline = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->inline($inline);
+        }
+        
+        /**
+         * Set url for links and form action
+         *
+         * @param string $url
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function url($url)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->url($url);
+        }
+        
+        /**
+         * Set route for links and form action
+         *
+         * @param string $route
+         * @param array $params
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function route($route, $params = array())
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->route($route, $params);
+        }
+        
+        /**
+         * Open a fieldset
+         *
+         * @param string $legend
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function fieldsetOpen($legend = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->fieldsetOpen($legend);
+        }
+        
+        /**
+         * Close a fieldset
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function fieldsetClose()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->fieldsetClose();
+        }
+        
+        /**
+         * Set a help text
+         *
+         * @param string $text
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function help($text)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->help($text);
+        }
+        
+        /**
+         * Create a file input
+         *
+         * @param string $name
+         * @param string $label
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function file($name = null, $label = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->file($name, $label);
+        }
+        
+        /**
+         * Create a text input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function text($name = null, $label = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->text($name, $label, $default);
+        }
+        
+        /**
+         * Create a date input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function date($name = null, $label = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->date($name, $label, $default);
+        }
+        
+        /**
+         * Create a time input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function time($name = null, $label = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->time($name, $label, $default);
+        }
+        
+        /**
+         * Create a range input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function range($name = null, $label = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->range($name, $label, $default);
+        }
+        
+        /**
+         * Create a hidden input
+         *
+         * @param string $name
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function hidden($name = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->hidden($name, $default);
+        }
+        
+        /**
+         * Create a select input
+         *
+         * @param string $name
+         * @param string $label
+         * @param array $options
+         * @param string|array $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function select($name = null, $label = null, $options = array(), $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->select($name, $label, $options, $default);
+        }
+        
+        /**
+         * Set options for a select field
+         *
+         * @param array $options
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function options($options = array())
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->options($options);
+        }
+        
+        /**
+         * Create a checkbox input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function checkbox($name = null, $label = null, $value = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->checkbox($name, $label, $value, $default);
+        }
+        
+        /**
+         * Create a radio input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $value
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function radio($name = null, $label = null, $value = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->radio($name, $label, $value, $default);
+        }
+        
+        /**
+         * Create a textarea input
+         *
+         * @param string $name
+         * @param string $label
+         * @param string $default
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function textarea($name = null, $label = null, $default = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->textarea($name, $label, $default);
+        }
+        
+        /**
+         * Set a label
+         *
+         * @param string $label
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function label($label)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->label($label);
+        }
+        
+        /**
+         * Create a button
+         *
+         * @param string $value
+         * @param string $color
+         * @param null $size
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function button($value = null, $color = 'primary', $size = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->button($value, $color, $size);
+        }
+        
+        /**
+         * Create a button type submit
+         *
+         * @param string $value
+         * @param string $color
+         * @param null $size
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function submit($value, $color = 'primary', $size = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->submit($value, $color, $size);
+        }
+        
+        /**
+         * Create a button type reset
+         *
+         * @param string $value
+         * @param string $color
+         * @param null $size
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function reset($value, $color = 'primary', $size = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->reset($value, $color, $size);
+        }
+        
+        /**
+         * Create a anchor
+         *
+         * @param string $value
+         * @param string $url
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function anchor($value, $url = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->anchor($value, $url);
+        }
+        
+        /**
+         * Flag a checkbox or a radio input as checked
+         *
+         * @param bool $checked
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function checked($checked = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->checked($checked);
+        }
+        
+        /**
+         * Set a input value
+         *
+         * @param string $value
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function value($value = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->value($value);
+        }
+        
+        /**
+         * Set a input type
+         *
+         * @param string $type
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function type($type)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->type($type);
+        }
+        
+        /**
+         * Set a render
+         *
+         * @param string $render
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function render($render)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->render($render);
+        }
+        
+        /**
+         * Set a field id
+         *
+         * @param string $id
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function id($id)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->id($id);
+        }
+        
+        /**
+         * Set a field name
+         *
+         * @param string $name
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function name($name)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->name($name);
+        }
+        
+        /**
+         * Set the size
+         *
+         * @param string $size
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function size($size = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->size($size);
+        }
+        
+        /**
+         * Set the size as lg
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function lg()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->lg();
+        }
+        
+        /**
+         * Set the size as sm
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function sm()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->sm();
+        }
+        
+        /**
+         * Set the color
+         *
+         * @param string $color
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function color($color = null)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->color($color);
+        }
+        
+        /**
+         * Set primary color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function primary()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->primary();
+        }
+        
+        /**
+         * Set secondary color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function secondary()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->secondary();
+        }
+        
+        /**
+         * Set success color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function success()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->success();
+        }
+        
+        /**
+         * Set danger color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function danger()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->danger();
+        }
+        
+        /**
+         * Set warning color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function warning()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->warning();
+        }
+        
+        /**
+         * Set info color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function info()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->info();
+        }
+        
+        /**
+         * Set light color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function light()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->light();
+        }
+        
+        /**
+         * Set dark color
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function dark()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->dark();
+        }
+        
+        /**
+         * Set link style
+         *
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function link()
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->link();
+        }
+        
+        /**
+         * Set outline style
+         *
+         * @param bool $outline
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function outline($outline = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->outline($outline);
+        }
+        
+        /**
+         * Set block style
+         *
+         * @param bool $status
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function block($status = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->block($status);
+        }
+        
+        /**
+         * Set readonly style
+         *
+         * @param bool $status
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function readonly($status = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->readonly($status);
+        }
+        
+        /**
+         * Set the input disabled status
+         *
+         * @param bool $status
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function disabled($status = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->disabled($status);
+        }
+        
+        /**
+         * Set the input required status
+         *
+         * @param bool $status
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function required($status = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->required($status);
+        }
+        
+        /**
+         * Set the input placeholder
+         *
+         * @param string $placeholder
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function placeholder($placeholder)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->placeholder($placeholder);
+        }
+        
+        /**
+         * Set custom attributes for an input
+         *
+         * @param array $attrs
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function attrs($attrs = array())
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->attrs($attrs);
+        }
+        
+        /**
+         * Set custom attributes for a wrapper input
+         *
+         * @param array $attrs
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function wrapperAttrs($attrs = array())
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->wrapperAttrs($attrs);
+        }
+        
+        /**
+         * Set a multiple select attribute
+         *
+         * @param bool $multiple
+         * @return \NetoJose\Bootstrap4Forms\FormService 
+         * @static 
+         */ 
+        public static function multiple($multiple = true)
+        {
+                        /** @var \NetoJose\Bootstrap4Forms\FormService $instance */
+                        return $instance->multiple($multiple);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -17025,6 +18606,12 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Debugbar extends \Barryvdh\Debugbar\Facade {}
+
+    class Flash extends \Laracasts\Flash\Flash {}
+
+    class Form extends \NetoJose\Bootstrap4Forms\Bootstrap4FormsFacade {}
  
 }
 

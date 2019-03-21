@@ -37,5 +37,6 @@ Route::group(
     ],
     function () {
         Route::resource('users', 'UsersController');
+        Route::resource('brands', 'BrandsController');
     }
 );
