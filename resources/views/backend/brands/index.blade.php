@@ -4,6 +4,10 @@
 
     @include('backend.partials._nav')
 
+    <p>
+        <a href="{{ route('admin.brands.create') }}" class="btn btn-success">{{ __('Create') }}</a>
+    </p>
+
     <table class="table table-bordered table-striped">
 
         <thead>

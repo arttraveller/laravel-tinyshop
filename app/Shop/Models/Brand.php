@@ -28,4 +28,16 @@ class Brand extends ShopModel
      */
     protected $table = 'shop_brands';
 
+
+    /**
+     * Can this brand be deleted
+     *
+     * @return bool
+     */
+    public function canDelete(): bool
+    {
+        // TODO
+        return true;
+    }
+
 }
