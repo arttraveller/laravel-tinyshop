@@ -14,3 +14,4 @@ yarn-error.log
 /.idea
 docker-compose.yml
 .env.testing
+/public/fonts

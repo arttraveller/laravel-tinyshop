@@ -4,9 +4,9 @@
 
     @include('backend.partials._nav')
 
-    <p>
-        <a href="{{ route('admin.brands.create') }}" class="btn btn-success">{{ __('Create') }}</a>
-    </p>
+    <div class="mb-2">
+        @include('backend.partials._create_button', ['route' => 'admin.brands.create'])
+    </div>
 
     <table class="table table-bordered table-striped">
 
@@ -26,7 +26,7 @@
                     <td>{{ $brand->name }}</td>
                     <td>{{ $brand->slug }}</td>
                     <td class="grid-action-column">
-                        @include('backend.partials._act-column', ['resource' => $brand, 'resourceRouteId' => 'brands'])
+                        @include('backend.partials._actions_column', ['resource' => $brand, 'resourceRouteId' => 'brands'])
                     </td>
                 </tr>
             @endforeach
