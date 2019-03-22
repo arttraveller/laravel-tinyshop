@@ -15,7 +15,7 @@ class UsersController extends BackendController
      */
     public function index()
     {
-        $users = User::orderByDesc('id')->paginate();
+        $users = User::sortable(['id' => 'desc'])->paginate(10);
 
         return view('backend.users.index', compact('users'));
     }

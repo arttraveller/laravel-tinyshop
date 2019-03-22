@@ -2,6 +2,8 @@
 
 namespace App\Shop\Models;
 
+use Kyslik\ColumnSortable\Sortable;
+
 /**
  * Brand model
  *
@@ -15,6 +17,9 @@ namespace App\Shop\Models;
 class Brand extends ShopModel
 {
 
+    use Sortable;
+
+
     /**
      * {@inheritdoc}
      */
@@ -27,6 +32,15 @@ class Brand extends ShopModel
      * {@inheritdoc}
      */
     protected $table = 'shop_brands';
+
+
+    /**
+     * Sortable columns
+     *
+     * @var array
+     */
+    public $sortable = ['id', 'name', 'slug'];
+
 
 
     /**

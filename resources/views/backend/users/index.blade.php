@@ -8,9 +8,9 @@
 
         <thead>
             <tr>
-                <th>{{ __('ID') }}</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Email') }}</th>
+                <th>@sortablelink('id',  __('ID'))</th>
+                <th>@sortablelink('name',  __('Name'))</th>
+                <th>@sortablelink('email',  __('Email'))</th>
             </tr>
         </thead>
 
@@ -26,5 +26,5 @@
 
     </table>
 
-    {{ $users->links() }}
+    {!! $users->appends(Request::except('page'))->render() !!}
 @endsection

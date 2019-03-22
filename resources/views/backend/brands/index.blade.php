@@ -12,10 +12,10 @@
 
         <thead>
             <tr>
-                <th>{{ __('ID') }}</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Slug') }}</th>
-                <th></th>
+                <th>@sortablelink('id',  __('ID'))</th>
+                <th>@sortablelink('name',  __('Name'))</th>
+                <th>@sortablelink('slug',  __('Slug'))</th>
+                <th>{{ __('Actions') }}</th>
             </tr>
         </thead>
 
@@ -34,5 +34,5 @@
 
     </table>
 
-    {{ $brands->links() }}
+    {!! $brands->appends(Request::except('page'))->render() !!}
 @endsection

@@ -35,7 +35,7 @@ class BrandsController extends BackendController
      */
     public function index()
     {
-        $brands = Brand::orderByDesc('id')->paginate();
+        $brands = Brand::sortable(['id' => 'desc'])->paginate(10);
 
         return view('backend.brands.index', compact('brands'));
     }

@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use Kyslik\ColumnSortable\Sortable;
 
 /**
  * @property int $id
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable implements MustVerifyEmail
 {
 
-    use Notifiable;
+    use Notifiable, Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -45,6 +46,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Sortable columns
+     *
+     * @var array
+     */
+    public $sortable = ['id', 'name', 'email'];
 
 
     /**
