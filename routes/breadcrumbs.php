@@ -29,17 +29,24 @@ Breadcrumbs::for('password.reset', function ($trail, $token) {
 
 
 
+
+
+// Admin
+Breadcrumbs::for('admin.cp_main', function ($trail) {
+    $trail->push(__('Admin'), route('admin.cp_main'));
+});
+
+
 // Users
 Breadcrumbs::for('admin.users.index', function ($trail) {
-    $trail->parent('main');
+    $trail->parent('admin.cp_main');
     $trail->push(__('Users'), route('admin.users.index'));
 });
 
 
-
 // Brands
 Breadcrumbs::for('admin.brands.index', function ($trail) {
-    $trail->parent('main');
+    $trail->parent('admin.cp_main');
     $trail->push(__('Brands'), route('admin.brands.index'));
 });
 

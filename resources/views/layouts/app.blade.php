@@ -56,7 +56,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @can('admin-access')
-                                        <a class="dropdown-item" href="{{ route('admin.users.index') }}">{{ __('Control panel') }}</a>
+                                        <a class="dropdown-item" href="{{ route('admin.cp_main') }}">{{ __('Control panel') }}</a>
                                     @endcan
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

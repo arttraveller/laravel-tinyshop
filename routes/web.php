@@ -36,6 +36,7 @@ Route::group(
         'middleware' => ['auth', 'verified', 'can:admin-access'],
     ],
     function () {
+        Route::get('/', 'ControlController@dashboard')->name('cp_main');
         Route::resource('users', 'UsersController');
         Route::resource('brands', 'BrandsController');
     }

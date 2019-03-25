@@ -26,7 +26,7 @@ class AdminOnlyPagesCest extends BaseFunctional
 
     public function checkAdminPageAsGuest(FunctionalTester $I)
     {
-        $I->amOnPage('/admin/users');
+        $I->amOnPage('/admin');
         $I->seeCurrentUrlEquals('/login');
     }
 
@@ -36,7 +36,7 @@ class AdminOnlyPagesCest extends BaseFunctional
         $this->user->markEmailAsVerified();
 
         $this->login($I, $this->user->email, 'password');
-        $I->amOnPage('/admin/users');
+        $I->amOnPage('/admin');
         $I->seeResponseCodeIs(403);
     }
 
@@ -48,7 +48,7 @@ class AdminOnlyPagesCest extends BaseFunctional
         $this->user->save();
 
         $this->login($I, $this->user->email, 'password');
-        $I->amOnPage('/admin/users');
+        $I->amOnPage('/admin');
         $I->seeResponseCodeIs(200);
     }
 
