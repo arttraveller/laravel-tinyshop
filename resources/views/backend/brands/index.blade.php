@@ -23,7 +23,7 @@
             @foreach ($brands as $brand)
                 <tr>
                     <td>{{ $brand->id }}</td>
-                    <td>{{ $brand->name }}</td>
+                    <td><a href="{{ route('admin.brands.show', $brand) }}">{{ $brand->name }}</a></td>
                     <td>{{ $brand->slug }}</td>
                     <td class="grid-action-column">
                         @include('backend.partials._actions_column', ['resource' => $brand, 'resourceRouteId' => 'brands'])

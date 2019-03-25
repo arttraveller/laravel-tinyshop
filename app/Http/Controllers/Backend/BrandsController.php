@@ -74,7 +74,7 @@ class BrandsController extends BackendController
      */
     public function show(Brand $brand)
     {
-        //
+        return view('backend.brands.show', ['brand' => $brand]);
     }
 
 
