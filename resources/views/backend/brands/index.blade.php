@@ -4,8 +4,22 @@
 
     @include('backend.partials._nav')
 
-    <div class="mb-2">
-        @include('backend.partials._create_button', ['route' => 'admin.brands.create'])
+    <div class="d-flex flex-row mb-2">
+        <div class="mr-auto">
+            @include('backend.partials._create_button', ['route' => 'admin.brands.create'])
+        </div>
+        <div class="form-group">
+            <form action="?" method="GET">
+                <div class="input-group">
+                    <input class="form-control form-control-no-border" name="search" placeholder="{{ __('Search') }}" type="text" value="{{ request('search') }}" />
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
     <table class="table table-bordered table-striped">

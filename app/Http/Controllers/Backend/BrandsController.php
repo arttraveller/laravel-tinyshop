@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests\Backend\BrandsRequest;
 use App\Shop\Models\Brand;
 use App\Shop\Services\Brands\BrandsManageService;
+use Illuminate\Http\Request;
 
 class BrandsController extends BackendController
 {
@@ -33,11 +34,17 @@ class BrandsController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $brands = Brand::sortable(['id' => 'desc'])->paginate(10);
+        $brands = Brand::sortable(['id' => 'desc']);
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $brands->where('id', 'ILIKE', $searchTerm . '%')
+                    ->orWhere('name', 'ILIKE', $searchTerm . '%')
+                    ->orWhere('slug', 'ILIKE', $searchTerm .'%');
+        }
 
-        return view('backend.brands.index', compact('brands'));
+        return view('backend.brands.index', ['brands' => $brands->paginate(10)]);
     }
 
 
