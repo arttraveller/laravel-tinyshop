@@ -4,6 +4,14 @@
 
     @include('backend.partials._nav')
 
+    <div class="d-flex flex-row mb-2">
+        <div class="mr-auto">
+        </div>
+        <div>
+            @include('backend.partials._search_form')
+        </div>
+    </div>
+
     <table class="table table-bordered table-striped">
 
         <thead>

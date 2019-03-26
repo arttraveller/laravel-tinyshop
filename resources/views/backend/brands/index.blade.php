@@ -8,17 +8,8 @@
         <div class="mr-auto">
             @include('backend.partials._create_button', ['route' => 'admin.brands.create'])
         </div>
-        <div class="form-group">
-            <form action="?" method="GET">
-                <div class="input-group">
-                    <input class="form-control form-control-no-border" name="search" placeholder="{{ __('Search') }}" type="text" value="{{ request('search') }}" />
-                    <div class="input-group-append">
-                        <button class="btn btn-secondary" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
+        <div>
+            @include('backend.partials._search_form')
         </div>
     </div>
 

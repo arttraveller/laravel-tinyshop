@@ -13,11 +13,15 @@ class UsersController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::sortable(['id' => 'desc'])->paginate(10);
+        $users = User::sortable(['id' => 'desc']);
+        $searchStr = $request->input('search');
+        if (strlen($searchStr) > 0) {
+            $this->addSearchConditions($users, $searchStr, ['id', 'name', 'email']);
+        }
 
-        return view('backend.users.index', compact('users'));
+        return view('backend.users.index', ['users' => $users->paginate(10)]);
     }
 
 

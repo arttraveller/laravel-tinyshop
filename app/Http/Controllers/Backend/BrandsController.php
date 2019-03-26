@@ -37,11 +37,9 @@ class BrandsController extends BackendController
     public function index(Request $request)
     {
         $brands = Brand::sortable(['id' => 'desc']);
-        if ($request->has('search')) {
-            $searchTerm = $request->input('search');
-            $brands->where('id', 'ILIKE', $searchTerm . '%')
-                    ->orWhere('name', 'ILIKE', $searchTerm . '%')
-                    ->orWhere('slug', 'ILIKE', $searchTerm .'%');
+        $searchStr = $request->input('search');
+        if (strlen($searchStr) > 0) {
+            $this->addSearchConditions($brands, $searchStr, ['id', 'name', 'slug']);
         }
 
         return view('backend.brands.index', ['brands' => $brands->paginate(10)]);
