@@ -2,36 +2,9 @@
 
 // Main
 use App\Shop\Models\Brand;
-
-Breadcrumbs::for('main', function ($trail) {
-    $trail->push(__('Home'), route('main'));
-});
-
-Breadcrumbs::for('login', function ($trail) {
-    $trail->parent('main');
-    $trail->push(__('Login'), route('login'));
-});
-
-Breadcrumbs::for('register', function ($trail) {
-    $trail->parent('main');
-    $trail->push(__('Register'), route('register'));
-});
-
-Breadcrumbs::for('password.request', function ($trail) {
-    $trail->parent('login');
-    $trail->push(__('Reset password'), route('password.request'));
-});
-
-Breadcrumbs::for('password.reset', function ($trail, $token) {
-    $trail->parent('password.request');
-    $trail->push(__('Reset'), route('password.reset', $token));
-});
+use App\Shop\Models\Tag;
 
 
-
-
-
-// Admin
 Breadcrumbs::for('admin.cp_main', function ($trail) {
     $trail->push(__('Admin'), route('admin.cp_main'));
 });
@@ -63,4 +36,26 @@ Breadcrumbs::for('admin.brands.create', function ($trail) {
 Breadcrumbs::for('admin.brands.edit', function ($trail, Brand $brand) {
     $trail->parent('admin.brands.index');
     $trail->push(__('Edit'), route('admin.brands.edit', $brand));
+});
+
+
+// Tags
+Breadcrumbs::for('admin.tags.index', function ($trail) {
+    $trail->parent('admin.cp_main');
+    $trail->push(__('Tags'), route('admin.tags.index'));
+});
+
+Breadcrumbs::for('admin.tags.show', function ($trail, Tag $tag) {
+    $trail->parent('admin.tags.index');
+    $trail->push($tag->name, route('admin.tags.show', $tag));
+});
+
+Breadcrumbs::for('admin.tags.create', function ($trail) {
+    $trail->parent('admin.tags.index');
+    $trail->push(__('Create'), route('admin.tags.create'));
+});
+
+Breadcrumbs::for('admin.tags.edit', function ($trail, Tag $tag) {
+    $trail->parent('admin.tags.index');
+    $trail->push(__('Edit'), route('admin.tags.edit', $tag));
 });

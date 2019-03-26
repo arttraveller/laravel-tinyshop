@@ -39,5 +39,6 @@ Route::group(
         Route::get('/', 'ControlController@dashboard')->name('cp_main');
         Route::resource('users', 'UsersController');
         Route::resource('brands', 'BrandsController');
+        Route::resource('tags', 'TagsController');
     }
 );

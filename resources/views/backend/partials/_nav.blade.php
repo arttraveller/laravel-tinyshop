@@ -14,4 +14,9 @@
             {{ __('Brands') }}
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link{{ Request::is( 'admin/tags*') ? ' active' : '' }}" href="{{ route('admin.tags.index') }}">
+            {{ __('Tags') }}
+        </a>
+    </li>
 </ul>
