@@ -45,14 +45,14 @@ class BrandsManageServiceTest extends BaseUnit
     }
 
 
-    public function testSuccessfulDelete()
-    {
-        $brand = $this->tester->haveRecord(Brand::class, ['name' => 'Some brand', 'slug' => 'some-brand']);
-        $delBrandId = $brand->id;
-        $this->tester->seeRecord(Brand::class, ['id' => $delBrandId]);
-        (new BrandsManageService())->delete($brand);
-        $this->tester->dontSeeRecord(Brand::class, ['id' => $delBrandId]);
-    }
+//    public function testSuccessfulDelete()
+//    {
+//        $brand = $this->tester->haveRecord(Brand::class, ['name' => 'Some brand', 'slug' => 'some-brand']);
+//        $delBrandId = $brand->id;
+//        $this->tester->seeRecord(Brand::class, ['id' => $delBrandId]);
+//        (new BrandsManageService())->delete($brand);
+//        $this->tester->dontSeeRecord(Brand::class, ['id' => $delBrandId]);
+//    }
 
 
     private function getValidData(): array

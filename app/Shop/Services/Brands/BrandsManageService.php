@@ -4,8 +4,6 @@ namespace App\Shop\Services\Brands;
 
 use App\Http\Requests\Backend\BrandsRequest;
 use App\Shop\Models\Brand;
-use common\exceptions\DeleteFromDbException;
-use LogicException;
 
 /**
  * Service for brands management
@@ -50,22 +48,6 @@ class BrandsManageService
         ]);
 
         return $brand;
-    }
-
-
-    /**
-     * Deletes the brand.
-     *
-     * @param Brand $brand
-     */
-    public function delete(Brand $brand): void
-    {
-        if (!$brand->canDelete()) {
-            throw new LogicException('This brand cannot be deleted');
-        }
-        if (!$brand->delete()) {
-            throw new DeleteFromDbException('An error occurred while deleting a brand');
-        }
     }
 
 }

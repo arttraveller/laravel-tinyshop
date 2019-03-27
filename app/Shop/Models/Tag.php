@@ -39,11 +39,8 @@ class Tag extends ShopModel
     public $sortable = ['id', 'name', 'slug'];
 
 
-
     /**
-     * Can this tag be deleted
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function canDelete(): bool
     {

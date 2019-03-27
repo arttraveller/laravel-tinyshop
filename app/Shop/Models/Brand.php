@@ -42,11 +42,8 @@ class Brand extends ShopModel
     public $sortable = ['id', 'name', 'slug'];
 
 
-
     /**
-     * Can this brand be deleted
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function canDelete(): bool
     {

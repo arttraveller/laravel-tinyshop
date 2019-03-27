@@ -9,12 +9,14 @@
             <i class="fa fa-edit"></i>
         </a>
     </div>
-    <form action="{{ route('admin.' . $resourceRouteId . '.destroy', $resource->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
-        @method('DELETE')
-        @csrf
-        {{--<input class="btn btn-sm btn-danger" type="submit" value="<i class='fa fa-trash'></i>" data-toggle="tooltip" title="{{ __('Delete') }}" />--}}
-        <button class="btn btn-sm btn-danger" type="submit" data-toggle="tooltip" title="{{ __('Delete') }}">
-            <i class="fa fa-trash-alt"></i>
-        </button>
-    </form>
+    @if ($resource->canDelete())
+        <form action="{{ route('admin.' . $resourceRouteId . '.destroy', $resource->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+            @method('DELETE')
+            @csrf
+            {{--<input class="btn btn-sm btn-danger" type="submit" value="<i class='fa fa-trash'></i>" data-toggle="tooltip" title="{{ __('Delete') }}" />--}}
+            <button class="btn btn-sm btn-danger" type="submit" data-toggle="tooltip" title="{{ __('Delete') }}">
+                <i class="fa fa-trash-alt"></i>
+            </button>
+        </form>
+    @endif
 </div>

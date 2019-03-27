@@ -118,7 +118,7 @@ class BrandsController extends BackendController
      */
     public function destroy(Brand $brand)
     {
-        $this->bmService->delete($brand);
+        $brand->delete();
 
         return redirect()->route('admin.brands.index');
     }
