@@ -10,7 +10,7 @@ class BrandsManageServiceTest extends BaseUnit
     public function testCreateWithValidData()
     {
         $data = $this->getValidData();
-        (new BrandsManageService())->create($data);
+        $newBrand = (new BrandsManageService())->create($data);
         $this->tester->seeRecord(Brand::class, [
             'name' => $data['name'],
             'slug' => $data['slug'],
@@ -18,6 +18,7 @@ class BrandsManageServiceTest extends BaseUnit
             'description' => $data['description'],
             'keywords' => $data['keywords'],
         ]);
+        expect('new brand can be deleted', $newBrand->canDelete())->true();
     }
 
 
@@ -45,15 +46,6 @@ class BrandsManageServiceTest extends BaseUnit
     }
 
 
-//    public function testSuccessfulDelete()
-//    {
-//        $brand = $this->tester->haveRecord(Brand::class, ['name' => 'Some brand', 'slug' => 'some-brand']);
-//        $delBrandId = $brand->id;
-//        $this->tester->seeRecord(Brand::class, ['id' => $delBrandId]);
-//        (new BrandsManageService())->delete($brand);
-//        $this->tester->dontSeeRecord(Brand::class, ['id' => $delBrandId]);
-//    }
-
 
     private function getValidData(): array
     {
@@ -65,6 +57,5 @@ class BrandsManageServiceTest extends BaseUnit
             'keywords' => 'New brand keywords',
         ];
     }
-
 
 }
