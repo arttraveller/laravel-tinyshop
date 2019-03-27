@@ -25,3 +25,8 @@ Breadcrumbs::for('password.reset', function ($trail, $token) {
     $trail->parent('password.request');
     $trail->push(__('Reset'), route('password.reset', $token));
 });
+
+Breadcrumbs::for('verification.notice', function ($trail) {
+    $trail->parent('register');
+    $trail->push(__('Verification'), route('verification.notice'));
+});

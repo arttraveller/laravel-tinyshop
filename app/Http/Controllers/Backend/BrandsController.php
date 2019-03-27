@@ -67,7 +67,7 @@ class BrandsController extends BackendController
     {
         $this->bmService->create($request->all());
 
-        return redirect()->route('admin.brands.index')->withSuccess(__('Brand was successfully created'));
+        return redirect()->route('admin.brands.index');
     }
 
 
@@ -106,7 +106,7 @@ class BrandsController extends BackendController
     {
         $this->bmService->update($brand, $request->all());
 
-        return redirect()->route('admin.brands.index')->withSuccess(__('Brand was successfully updated'));
+        return redirect()->route('admin.brands.index');
     }
 
 
@@ -120,7 +120,7 @@ class BrandsController extends BackendController
     {
         $this->bmService->delete($brand);
 
-        return redirect()->route('admin.brands.index')->withSuccess(__('Brand was successfully deleted'));
+        return redirect()->route('admin.brands.index');
     }
 
 }

@@ -21,6 +21,7 @@
 </head>
 <body>
     <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -82,12 +83,16 @@
 
                         @section('breadcrumbs', Breadcrumbs::render())
                         @yield('breadcrumbs')
+
+                        @include('flash::message')
+
                         @yield('content')
 
                     </div>
                 </div>
             </div>
         </main>
+
     </div>
 </body>
 </html>
