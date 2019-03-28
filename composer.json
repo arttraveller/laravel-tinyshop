@@ -12,6 +12,7 @@
         "barryvdh/laravel-ide-helper": "^2.6",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fideloper/proxy": "^4.0",
+        "kalnoy/nestedset": "^4.3",
         "kyslik/column-sortable": "^5.8",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.8.*",
