@@ -14,7 +14,7 @@ class ShopCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Category::class, 5)->create()->each(function(Category $category) {
+        factory(Category::class, 2)->create()->each(function(Category $category) {
             $category->children()->saveMany($this->generateCategories()->each(function(Category $category) {
                 $category->children()->saveMany($this->generateCategories());
             }));
