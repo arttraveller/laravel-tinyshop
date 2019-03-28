@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shop\Services\Brands;
+namespace App\Shop\Services;
 
 use App\Http\Requests\Backend\BrandsRequest;
 use App\Shop\Models\Brand;

@@ -1,7 +1,7 @@
 <?php
 
 use App\Shop\Models\Brand;
-use App\Shop\Services\Brands\BrandsManageService;
+use App\Shop\Services\BrandsManageService;
 use Tests\unit\BaseUnit;
 
 class BrandsManageServiceTest extends BaseUnit

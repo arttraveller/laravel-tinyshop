@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\BrandsRequest;
 use App\Shop\Models\Brand;
-use App\Shop\Services\Brands\BrandsManageService;
+use App\Shop\Services\BrandsManageService;
 use Illuminate\Http\Request;
 
 class BrandsController extends BackendController
@@ -19,14 +19,13 @@ class BrandsController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param  BrandsManageService  $bmService
+     * @param BrandsManageService $bmService
      * @return void
      */
     public function __construct(BrandsManageService $bmService)
     {
         $this->bmService = $bmService;
     }
-
 
 
     /**
@@ -60,7 +59,7 @@ class BrandsController extends BackendController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BrandsRequest  $request
+     * @param BrandsRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(BrandsRequest $request)
@@ -74,7 +73,7 @@ class BrandsController extends BackendController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Shop\Models\Brand  $brand
+     * @param Brand $brand
      * @return \Illuminate\Http\Response
      */
     public function show(Brand $brand)
@@ -86,7 +85,7 @@ class BrandsController extends BackendController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Shop\Models\Brand  $brand
+     * @param Brand $brand
      * @return \Illuminate\Http\Response
      */
     public function edit(Brand $brand)
@@ -98,8 +97,8 @@ class BrandsController extends BackendController
     /**
      * Update the specified resource in storage.
      *
-     * @param  BrandsRequest  $request
-     * @param  \App\Shop\Models\Brand  $brand
+     * @param BrandsRequest $request
+     * @param Brand $brand
      * @return \Illuminate\Http\Response
      */
     public function update(BrandsRequest $request, Brand $brand)
@@ -113,7 +112,7 @@ class BrandsController extends BackendController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Shop\Models\Brand  $brand
+     * @param Brand $brand
      * @return \Illuminate\Http\Response
      */
     public function destroy(Brand $brand)

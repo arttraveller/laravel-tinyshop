@@ -2,7 +2,7 @@
 
     <div class="col-6">
         <div class="card mb-3">
-            <div class="card-header bg-primary text-white">Brand</div>
+            <div class="card-header bg-primary text-white">{{ __('Brand') }}</div>
             <div class="card-body">
 
                 {!! Form::text('name', __('Name'))->value($name) !!}
