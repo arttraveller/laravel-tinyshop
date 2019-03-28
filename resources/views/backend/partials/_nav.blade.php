@@ -19,4 +19,9 @@
             {{ __('Tags') }}
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link{{ Request::is( 'admin/categories*') ? ' active' : '' }}" href="{{ route('admin.categories.index') }}">
+            {{ __('Categories') }}
+        </a>
+    </li>
 </ul>

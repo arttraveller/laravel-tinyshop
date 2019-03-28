@@ -2,6 +2,7 @@
 
 // Main
 use App\Shop\Models\Brand;
+use App\Shop\Models\Category;
 use App\Shop\Models\Tag;
 
 
@@ -58,4 +59,26 @@ Breadcrumbs::for('admin.tags.create', function ($trail) {
 Breadcrumbs::for('admin.tags.edit', function ($trail, Tag $tag) {
     $trail->parent('admin.tags.index');
     $trail->push(__('Edit'), route('admin.tags.edit', $tag));
+});
+
+
+// Categories
+Breadcrumbs::for('admin.categories.index', function ($trail) {
+    $trail->parent('admin.cp_main');
+    $trail->push(__('Categories'), route('admin.categories.index'));
+});
+
+Breadcrumbs::for('admin.categories.show', function ($trail, Category $category) {
+    $trail->parent('admin.categories.index');
+    $trail->push($category->name, route('admin.categories.show', $category));
+});
+
+Breadcrumbs::for('admin.categories.create', function ($trail) {
+    $trail->parent('admin.categories.index');
+    $trail->push(__('Create'), route('admin.categories.create'));
+});
+
+Breadcrumbs::for('admin.categories.edit', function ($trail, Category $tag) {
+    $trail->parent('admin.categories.index');
+    $trail->push(__('Edit'), route('admin.categories.edit', $tag));
 });

@@ -14,7 +14,8 @@ use Kalnoy\Nestedset\NodeTrait;
  * @property string $meta_title
  * @property string $meta_description
  * @property string $meta_keywords
- * @property int $parent_id
+ * @property int|null $parent_id
+ * @property int $depth
  */
 class Category extends ShopModel
 {

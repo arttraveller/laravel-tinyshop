@@ -40,5 +40,6 @@ Route::group(
         Route::resource('users', 'UsersController');
         Route::resource('brands', 'BrandsController');
         Route::resource('tags', 'TagsController');
+        Route::resource('categories', 'CategoriesController');
     }
 );
