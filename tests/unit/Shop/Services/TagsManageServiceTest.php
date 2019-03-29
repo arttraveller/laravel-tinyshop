@@ -30,7 +30,9 @@ class TagsManageServiceTest extends BaseUnit
             'name' => $data['name'],
             'slug' => $data['slug'],
         ]);
-        $this->tester->seeRecord(tag::class, [
+
+        $this->tester->seeRecord(Tag::class, [
+            'id' => $oldTag->id,
             'name' => $data['name'],
             'slug' => $data['slug'],
         ]);

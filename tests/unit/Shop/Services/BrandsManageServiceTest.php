@@ -36,7 +36,9 @@ class BrandsManageServiceTest extends BaseUnit
             'description' => $oldBrand->description,
             'keywords' => $oldBrand->keywords,
         ]);
+
         $this->tester->seeRecord(Brand::class, [
+            'id' => $oldBrand->id,
             'name' => $data['name'],
             'slug' => $data['slug'],
             'title' => $oldBrand->title,
