@@ -6,9 +6,9 @@
         @include('backend.brands._form', [
             'name' => $brand->name,
             'slug' => $brand->slug,
-            'seoTitle' => $brand->title,
-            'seoDescription' => $brand->description,
-            'seoKeywords' => $brand->keywords,
+            'metaTitle' => $brand->meta_title,
+            'metaDescription' => $brand->meta_description,
+            'metaKeywords' => $brand->meta_keywords,
         ])
 
     {!! Form::close() !!}

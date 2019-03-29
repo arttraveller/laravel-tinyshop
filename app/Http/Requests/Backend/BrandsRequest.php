@@ -30,9 +30,9 @@ class BrandsRequest extends FormRequest
             'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_brands')->ignore($this->brand)],
             'slug' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash', Rule::unique('shop_brands')->ignore($this->brand)],
 
-            'title' => ['string', 'nullable', 'max:255'],
-            'description' => ['string',  'nullable', 'max:255'],
-            'keywords' => ['string', 'nullable', 'max:255'],
+            'meta_title' => ['string', 'nullable', 'max:255'],
+            'meta_description' => ['string',  'nullable', 'max:255'],
+            'meta_keywords' => ['string', 'nullable', 'max:255'],
         ];
     }
 

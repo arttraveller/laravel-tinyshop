@@ -22,9 +22,9 @@ class BrandsManageService
         return Brand::create([
             'name' => $data['name'],
             'slug' => $data['slug'],
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'keywords' => $data['keywords'],
+            'meta_title' => $data['meta_title'],
+            'meta_description' => $data['meta_description'],
+            'meta_keywords' => $data['meta_keywords'],
         ]);
     }
 
@@ -42,9 +42,9 @@ class BrandsManageService
         $brand->update([
             'name' => $data['name'],
             'slug' => $data['slug'],
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'keywords' => $data['keywords'],
+            'meta_title' => $data['meta_title'],
+            'meta_description' => $data['meta_description'],
+            'meta_keywords' => $data['meta_keywords'],
         ]);
 
         return $brand;

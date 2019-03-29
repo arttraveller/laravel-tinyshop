@@ -24,16 +24,16 @@
                         <td>{{ $brand->slug }}</td>
                     </tr>
                     <tr>
-                        <th>{{ __('Title') }}</th>
-                        <td>{{ $brand->title }}</td>
+                        <th>{{ __('Meta title') }}</th>
+                        <td>{{ $brand->meta_title }}</td>
                     </tr>
                     <tr>
-                        <th>{{ __('Description') }}</th>
-                        <td>{{ $brand->description }}</td>
+                        <th>{{ __('Meta description') }}</th>
+                        <td>{{ $brand->meta_description }}</td>
                     </tr>
                     <tr>
-                        <th>{{ __('Keywords') }}</th>
-                        <td>{{ $brand->keywords }}</td>
+                        <th>{{ __('Meta keywords') }}</th>
+                        <td>{{ $brand->meta_keywords }}</td>
                     </tr>
                 </tbody>
             </table>

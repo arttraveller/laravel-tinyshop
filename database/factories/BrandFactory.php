@@ -9,8 +9,8 @@ $factory->define(Brand::class, function (Faker $faker) {
     return [
         'name' => $companyName,
         'slug' => Str::slug($companyName),
-        'title' => $companyName . ' - title',
-        'description' => $companyName . ' - description',
-        'keywords' => $companyName . ' - keywords',
+        'meta_title' => $companyName . ' - title',
+        'meta_description' => $companyName . ' - description',
+        'meta_keywords' => $companyName . ' - keywords',
     ];
 });

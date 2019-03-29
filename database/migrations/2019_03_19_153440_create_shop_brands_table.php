@@ -18,9 +18,9 @@ class CreateShopBrandsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('keywords')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
         });
     }
 

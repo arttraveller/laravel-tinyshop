@@ -10,9 +10,9 @@ use Kyslik\ColumnSortable\Sortable;
  * @property int $id
  * @property string $name
  * @property string $slug
- * @property string $title
- * @property string $description
- * @property string $keywords
+ * @property string $meta_title
+ * @property string $meta_description
+ * @property string $meta_keywords
  */
 class Brand extends ShopModel
 {
@@ -24,7 +24,7 @@ class Brand extends ShopModel
      * {@inheritdoc}
      */
     protected $fillable = [
-        'name', 'slug', 'title', 'description', 'keywords'
+        'name', 'slug', 'meta_title', 'meta_description', 'meta_keywords'
     ];
 
 
