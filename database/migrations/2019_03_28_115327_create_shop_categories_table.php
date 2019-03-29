@@ -16,8 +16,8 @@ class CreateShopCategoriesTable extends Migration
     {
         Schema::create('shop_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->index();
-            $table->string('slug');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->text('description')->nullable();
 
             $table->string('meta_title')->nullable();

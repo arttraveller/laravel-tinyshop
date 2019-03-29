@@ -4,7 +4,8 @@ use App\Shop\Models\Category;
 use Faker\Generator as Faker;
 
 $factory->define(Category::class, function (Faker $faker) {
-    $catName = ucfirst($faker->word);
+    $catName = $faker->company
+                    . ' (' . Str::random(16) . ')';
     return [
         'name' => $catName,
         'slug' => Str::slug($catName),

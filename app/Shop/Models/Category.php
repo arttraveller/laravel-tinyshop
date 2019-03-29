@@ -27,7 +27,7 @@ class Category extends ShopModel
      * {@inheritdoc}
      */
     protected $fillable = [
-        'name', 'slug', 'description', 'meta_title', 'meta_description', 'meta_keywords'
+        'name', 'slug', 'description', 'meta_title', 'meta_description', 'meta_keywords', 'parent_id'
     ];
 
 
