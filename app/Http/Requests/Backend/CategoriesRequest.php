@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Backend;
 
+use App\Rules\Slug;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -29,7 +30,7 @@ class CategoriesRequest extends FormRequest
         return [
             'parent_id' => ['integer', 'nullable', 'exists:shop_categories,id'],
             'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_categories')->ignore($this->category)],
-            'slug' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash', Rule::unique('shop_categories')->ignore($this->category)],
+            'slug' => ['required', new Slug, Rule::unique('shop_categories')->ignore($this->category)],
             'description' => ['string', 'nullable', 'max:10000'],
 
             'meta_title' => ['string', 'nullable', 'max:255'],

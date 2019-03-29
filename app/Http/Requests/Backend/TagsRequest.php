@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Backend;
 
+use App\Rules\Slug;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -28,7 +29,7 @@ class TagsRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_tags')->ignore($this->tag)],
-            'slug' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash', Rule::unique('shop_tags')->ignore($this->tag)],
+            'slug' => ['required', new Slug, Rule::unique('shop_tags')->ignore($this->tag)],
         ];
     }
 
