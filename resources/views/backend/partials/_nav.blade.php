@@ -24,4 +24,9 @@
             {{ __('Categories') }}
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link{{ Request::is( 'admin/characteristics*') ? ' active' : '' }}" href="{{ route('admin.characteristics.index') }}">
+            {{ __('Characteristics') }}
+        </a>
+    </li>
 </ul>

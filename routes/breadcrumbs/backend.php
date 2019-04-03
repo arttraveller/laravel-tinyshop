@@ -82,3 +82,10 @@ Breadcrumbs::for('admin.categories.edit', function ($trail, Category $tag) {
     $trail->parent('admin.categories.index');
     $trail->push(__('Edit'), route('admin.categories.edit', $tag));
 });
+
+
+// Characteristics
+Breadcrumbs::for('admin.characteristics.index', function ($trail) {
+    $trail->parent('admin.cp_main');
+    $trail->push(__('Characteristics'), route('admin.characteristics.index'));
+});
