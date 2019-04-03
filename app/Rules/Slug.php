@@ -57,12 +57,13 @@ class Slug implements Rule
      */
     private function checkLength($slug): void
     {
-        if (mb_strlen($slug, 'UTF-8') < self::MIN_LENGTH) {
+        $slugLen = mb_strlen($slug, 'UTF-8');
+        if ($slugLen < self::MIN_LENGTH) {
             $this->isValidSlug = false;
-            $this->message = 'The slug must be at least ' . self::MIN_LENGTH . ' characters.';
-        } else if (mb_strlen($slug, 'UTF-8') > self::MAX_LENGTH) {
+            $this->message = 'The :attribute must be at least ' . self::MIN_LENGTH . ' characters.';
+        } else if ($slugLen > self::MAX_LENGTH) {
             $this->isValidSlug = false;
-            $this->message = 'The slug may not be greater than ' . self::MAX_LENGTH . ' characters.';
+            $this->message = 'The :attribute may not be greater than ' . self::MAX_LENGTH . ' characters.';
         }
     }
 
