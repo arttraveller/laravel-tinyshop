@@ -10,7 +10,7 @@ $factory->define(Characteristic::class, function (Faker $faker) {
     return [
         'name' => $charName,
         'type' => random_int(ECharacteristicTypes::STRING, ECharacteristicTypes::FLOAT),
-        'required' => $faker->boolean,
+        'is_required' => $faker->boolean,
         'sort' => random_int(1, 100),
     ];
 });

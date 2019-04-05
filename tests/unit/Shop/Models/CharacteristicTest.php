@@ -12,7 +12,7 @@ class CharacteristicTest extends BaseUnit
         $char = $this->tester->haveRecord(Characteristic::class, [
             'name' => 'Some char',
             'type' => ECharacteristicTypes::STRING,
-            'required' => false,
+            'is_required' => false,
             'sort' => 1
         ]);
         $charId = $char->id;

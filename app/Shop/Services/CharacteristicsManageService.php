@@ -2,7 +2,6 @@
 
 namespace App\Shop\Services;
 
-use App\Helpers\Json;
 use App\Shop\Models\Characteristic;
 
 /**
@@ -19,15 +18,20 @@ class CharacteristicsManageService
      */
     public function create(array $data): Characteristic
     {
-        $variantsJson = Json::encode($data['variants']);
+        if ($data['sort'] > 0) {
+            $sort = (int)$data['sort'];
+        } else {
+            $maxSort = (int)Characteristic::max('sort');
+            $sort = $maxSort + 1;
+        }
 
         return Characteristic::create([
             'name' => $data['name'],
             'type' => $data['type'],
-            'required' => $data['required'],
-            'default' => $data['default'],
-            'variants_json' => $variantsJson,
-            'sort' => $data['sort'],
+            'is_required' => $data['is_required'],
+            'default_value' => $data['default_value'],
+            'variants' => $data['variants'],
+            'sort' => $sort,
         ]);
     }
 

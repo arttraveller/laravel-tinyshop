@@ -9,10 +9,10 @@
 
                 {!! Form::select('type', __('Type'), $charTypes)->value($type) !!}
 
-                {!! Form::select('required', __('Required'), $boolValues)->value($required) !!}
+                {!! Form::select('is_required', __('Required'), $boolValues)->value($isRequired) !!}
 
                 <div class="mt-2">
-                    {!! Form::text('default', __('Default value'))->value($default) !!}
+                    {!! Form::text('default_value', __('Default value'))->value($defaultValue) !!}
                 </div>
 
                 {!! Form::textarea('variants', __('Variants'))->value($variants) !!}

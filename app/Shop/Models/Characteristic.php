@@ -10,8 +10,9 @@ use Kyslik\ColumnSortable\Sortable;
  * @property int $id
  * @property string $name
  * @property int $type
- * @property boolean $required
- * @property string $default
+ * @property boolean $is_required
+ * @property string $default_value
+ * @property string $variants
  * @property int $sort
  */
 class Characteristic extends ShopModel
@@ -26,9 +27,9 @@ class Characteristic extends ShopModel
     protected $fillable = [
         'name',
         'type',
-        'required',
-        'default',
-        'variants_json',
+        'is_required',
+        'default_value',
+        'variants',
         'sort'
     ];
 
@@ -36,7 +37,7 @@ class Characteristic extends ShopModel
     /**
      * {@inheritdoc}
      */
-    protected $table = 'shop_characteristic';
+    protected $table = 'shop_characteristics';
 
 
 

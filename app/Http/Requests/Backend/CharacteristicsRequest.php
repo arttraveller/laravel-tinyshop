@@ -27,12 +27,12 @@ class CharacteristicsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_characteristic')->ignore($this->characteristic)],
+            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_characteristics')->ignore($this->characteristic)],
             'type' => ['required', 'integer'],
-            'required' => ['required', 'boolean'],
-            'default' => ['string', 'nullable', 'max:255'],
+            'is_required' => ['required', 'boolean'],
+            'default_value' => ['string', 'nullable', 'max:255'],
             'variants' => ['string', 'nullable', 'max:1000'],
-            'sort' => ['required', 'integer'],
+            'sort' => ['integer', 'nullable'],
         ];
     }
 

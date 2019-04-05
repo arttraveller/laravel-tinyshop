@@ -8,8 +8,8 @@
             'boolValues' => \App\Enums\EBool::getLabels(),
             'name' => null,
             'type' => \App\Shop\Enums\ECharacteristicTypes::STRING,
-            'required' => 0,
-            'default' => null,
+            'isRequired' => 0,
+            'defaultValue' => null,
             'variants' => null,
             'sort' => null,
         ])
