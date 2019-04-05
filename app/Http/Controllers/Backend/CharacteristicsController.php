@@ -57,7 +57,6 @@ class CharacteristicsController extends BackendController
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -67,6 +66,59 @@ class CharacteristicsController extends BackendController
     public function store(CharacteristicsRequest $request)
     {
         $this->cmService->create($request->all());
+
+        return redirect()->route('admin.characteristics.index');
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Characteristic $characteristic
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Characteristic $characteristic)
+    {
+        return view('backend.characteristics.show', ['characteristic' => $characteristic]);
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Characteristic $characteristic
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Characteristic $characteristic)
+    {
+        return view('backend.characteristics.edit', ['characteristic' => $characteristic]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param CharacteristicsRequest $request
+     * @param Characteristic $characteristic
+     * @return \Illuminate\Http\Response
+     */
+    public function update(CharacteristicsRequest $request, Characteristic $characteristic)
+    {
+        $this->cmService->update($characteristic, $request->all());
+
+        return redirect()->route('admin.characteristics.index');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Characteristic $characteristic
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Characteristic $characteristic)
+    {
+        $characteristic->delete();
 
         return redirect()->route('admin.characteristics.index');
     }
