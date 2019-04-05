@@ -24,7 +24,12 @@ class Characteristic extends ShopModel
      * {@inheritdoc}
      */
     protected $fillable = [
-        'name', 'type', 'required', 'default', 'sort'
+        'name',
+        'type',
+        'required',
+        'default',
+        'variants_json',
+        'sort'
     ];
 
 

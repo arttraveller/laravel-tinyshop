@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\Shop\ECharacteristicTypes;
+use App\Shop\Enums\ECharacteristicTypes;
 use App\Shop\Models\Characteristic;
 use Faker\Generator as Faker;
 
