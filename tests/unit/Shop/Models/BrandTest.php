@@ -1,18 +1,28 @@
 <?php
 
 use App\Shop\Models\Brand;
+use App\Shop\Models\Category;
+use App\Shop\Models\Product;
 use Tests\unit\BaseUnit;
 
 class BrandTest extends BaseUnit
 {
 
-    public function testSuccessfulDelete()
+    public function testDelete()
     {
-        $brand = $this->tester->haveRecord(Brand::class, ['name' => 'Some brand', 'slug' => 'some-brand']);
+        $brand = $this->tester->have(Brand::class);
         $brandId = $brand->id;
-        $this->assertTrue($brand->canDelete());
-        $brand->delete();
-        $this->tester->dontSeeRecord(Brand::class, ['id' => $brandId]);
+        expect('blank brand can be deleted', $brand->canDelete())->true();
+
+        // Create product
+        $category = $this->tester->have(Category::class);
+        $product = $this->tester->have(Product::class, ['brand_id' => $brandId]);
+        $brand->refresh();
+
+        expect('brand that has products can not be deleted', $brand->canDelete())->false();
+        $this->tester->expectThrowable(LogicException::class, function() use ($brand) {
+            $brand->delete();
+        });
     }
 
 }

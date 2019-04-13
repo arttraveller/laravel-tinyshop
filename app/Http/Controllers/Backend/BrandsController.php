@@ -35,7 +35,7 @@ class BrandsController extends BackendController
      */
     public function index(Request $request)
     {
-        $brands = Brand::sortable(['id' => 'desc']);
+        $brands = Brand::sortable(['id' => 'desc'])->withCount('products');
         $searchStr = $request->input('search');
         if (strlen($searchStr) > 0) {
             $this->addSearchConditions($brands, $searchStr, ['id', 'name', 'slug']);

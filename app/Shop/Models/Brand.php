@@ -58,8 +58,14 @@ class Brand extends ShopModel
      */
     public function canDelete(): bool
     {
-        // TODO
-        return true;
+        $numProducts = ($this->products_count === null) ? $this->products->count() : $this->products_count;
+        if ($numProducts > 0) {
+            $result = false;
+        } else {
+            $result = true;
+        }
+
+        return $result;
     }
 
 }
