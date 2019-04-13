@@ -43,6 +43,17 @@ class Brand extends ShopModel
 
 
     /**
+     * Get products.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+
+    /**
      * {@inheritdoc}
      */
     public function canDelete(): bool

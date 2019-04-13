@@ -22,6 +22,8 @@ use Kyslik\ColumnSortable\Sortable;
  * @property string $meta_keywords
  * @property integer $created_at
  * @property integer $updated_at
+ * @property Category $mainCategory
+ * @property Brand $brand
  */
 class Product extends ShopModel
 {
@@ -54,6 +56,28 @@ class Product extends ShopModel
      */
     protected $table = 'shop_products';
 
+
+
+    /**
+     * Get main category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function mainCategory()
+    {
+        return $this->belongsTo(Category::class, 'main_category_id');
+    }
+
+
+    /**
+     * Get brand.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 
 
     /**
