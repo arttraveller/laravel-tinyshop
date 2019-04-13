@@ -29,4 +29,9 @@
             {{ __('Characteristics') }}
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link{{ Request::is( 'admin/products*') ? ' active' : '' }}" href="{{ route('admin.products.index') }}">
+            {{ __('Products') }}
+        </a>
+    </li>
 </ul>

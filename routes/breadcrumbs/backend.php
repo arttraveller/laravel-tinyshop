@@ -105,3 +105,10 @@ Breadcrumbs::for('admin.characteristics.edit', function ($trail, Characteristic 
     $trail->parent('admin.characteristics.index');
     $trail->push(__('Edit'), route('admin.characteristics.edit', $char));
 });
+
+
+// Products
+Breadcrumbs::for('admin.products.index', function ($trail) {
+    $trail->parent('admin.cp_main');
+    $trail->push(__('Products'), route('admin.products.index'));
+});

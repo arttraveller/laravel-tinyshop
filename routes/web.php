@@ -42,5 +42,6 @@ Route::group(
         Route::resource('tags', 'TagsController');
         Route::resource('categories', 'CategoriesController');
         Route::resource('characteristics', 'CharacteristicsController');
+        Route::resource('products', 'ProductsController');
     }
 );
