@@ -20,8 +20,8 @@ class CreateShopProductsTable extends Migration
             $table->string('name')->index();
             $table->text('description')->nullable();
             $table->integer('status');
-            $table->integer('main_category_id');
-            $table->integer('brand_id');
+            $table->bigInteger('main_category_id');
+            $table->bigInteger('brand_id');
             $table->decimal('old_price', 10, 2)->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->decimal('rating', 4, 2)->nullable();
