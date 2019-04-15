@@ -39,12 +39,25 @@ class Category extends ShopModel
 
 
     /**
+     * Get products where main_category_id is it category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function mainProducts()
+    {
+        return $this->hasMany(Product::class, 'main_category_id');
+    }
+
+
+    /**
      * {@inheritdoc}
      */
     public function canDelete(): bool
     {
-        // TODO
-        return true;
+        $numProducts = ($this->main_products_count === null) ? $this->mainProducts()->count() : $this->main_products_count;
+        $result = ($numProducts > 0) ? false : true;
+
+        return $result;
     }
 
 }

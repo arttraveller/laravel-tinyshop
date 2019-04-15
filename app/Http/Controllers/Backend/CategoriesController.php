@@ -37,7 +37,9 @@ class CategoriesController extends BackendController
      */
     public function index(Request $request)
     {
-        $categories = Category::defaultOrder()->withDepth();
+        $categories = Category::defaultOrder()
+                                ->withDepth()
+                                ->withCount('mainProducts');
         $searchStr = $request->input('search');
         if (strlen($searchStr) > 0) {
             $this->addSearchConditions($categories, $searchStr, ['id', 'name', 'slug']);
