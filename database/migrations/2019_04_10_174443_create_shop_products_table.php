@@ -19,12 +19,12 @@ class CreateShopProductsTable extends Migration
             $table->string('code')->unique();
             $table->string('name')->index();
             $table->text('description')->nullable();
-            $table->integer('status');
+            $table->integer('status')->index();
             $table->bigInteger('main_category_id');
-            $table->bigInteger('brand_id');
+            $table->bigInteger('brand_id')->index();
             $table->decimal('old_price', 10, 2)->nullable();
-            $table->decimal('price', 10, 2)->nullable();
-            $table->decimal('rating', 4, 2)->nullable();
+            $table->decimal('price', 10, 2)->nullable()->index();
+            $table->decimal('rating', 4, 2)->nullable()->index();
 
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
