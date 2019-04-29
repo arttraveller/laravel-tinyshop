@@ -112,3 +112,8 @@ Breadcrumbs::for('admin.products.index', function ($trail) {
     $trail->parent('admin.cp_main');
     $trail->push(__('Products'), route('admin.products.index'));
 });
+
+Breadcrumbs::for('admin.products.create', function ($trail) {
+    $trail->parent('admin.products.index');
+    $trail->push(__('Create'), route('admin.products.create'));
+});
