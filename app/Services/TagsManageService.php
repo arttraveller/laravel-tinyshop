@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Shop\Services;
+namespace App\Services;
 
-use App\Shop\Models\Tag;
+use App\Models\Tag;
 
 /**
  * Service for tags management

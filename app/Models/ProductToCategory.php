@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shop\Models;
+namespace App\Models;
 
 /**
  * Product and category rel model

@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Brand;
+use App\Models\Brand;
 use Faker\Generator as Faker;
 
 $factory->define(Brand::class, function (Faker $faker) {

@@ -1,7 +1,7 @@
 <?php
 
-use App\Shop\Enums\ECharacteristicTypes;
-use App\Shop\Models\Characteristic;
+use App\Enums\ECharacteristicTypes;
+use App\Models\Characteristic;
 use Tests\unit\BaseUnit;
 
 class CharacteristicTest extends BaseUnit

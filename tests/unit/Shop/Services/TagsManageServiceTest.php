@@ -1,7 +1,7 @@
 <?php
 
-use App\Shop\Models\Tag;
-use App\Shop\Services\TagsManageService;
+use App\Models\Tag;
+use App\Services\TagsManageService;
 use Tests\unit\BaseUnit;
 
 class TagsManageServiceTest extends BaseUnit

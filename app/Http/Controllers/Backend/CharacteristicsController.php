@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CharacteristicsRequest;
-use App\Shop\Models\Characteristic;
-use App\Shop\Services\CharacteristicsManageService;
+use App\Models\Characteristic;
+use App\Services\CharacteristicsManageService;
 use Illuminate\Http\Request;
 
 class CharacteristicsController extends BackendController

@@ -21,7 +21,7 @@
                     </tr>
                     <tr>
                         <th>{{ __('Type') }}</th>
-                        <td>{{ \App\Shop\Enums\ECharacteristicTypes::getLabel($characteristic->type) }}</td>
+                        <td>{{ \App\Enums\ECharacteristicTypes::getLabel($characteristic->type) }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Required') }}</th>

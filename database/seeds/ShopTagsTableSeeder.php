@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Tag;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class ShopTagsTableSeeder extends Seeder

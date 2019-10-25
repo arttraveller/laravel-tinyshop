@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Tag;
+use App\Models\Tag;
 use Faker\Generator as Faker;
 
 $factory->define(Tag::class, function (Faker $faker) {

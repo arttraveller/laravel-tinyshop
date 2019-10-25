@@ -1,13 +1,13 @@
 <?php
 
-use App\Shop\Enums\EProductStatuses;
-use App\Shop\Models\Brand;
-use App\Shop\Models\Product;
+use App\Enums\EProductStatuses;
+use App\Models\Brand;
+use App\Models\Product;
 use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
     $productName = $faker->company . ' ' . $faker->word;
-    $catsIds = \App\Shop\Models\Category::pluck('id')->toArray();
+    $catsIds = \App\Models\Category::pluck('id')->toArray();
     $brandsIds = Brand::pluck('id')->toArray();
 
     return [

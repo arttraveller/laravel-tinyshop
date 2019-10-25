@@ -4,7 +4,7 @@
     {!! Form::open()->route('admin.characteristics.update', ['id' => $characteristic->id])->method('PUT') !!}
 
         @include('backend.characteristics._form', [
-            'charTypes' => \App\Shop\Enums\ECharacteristicTypes::getLabels(),
+            'charTypes' => \App\Enums\ECharacteristicTypes::getLabels(),
             'boolValues' => \App\Enums\EBool::getLabels(),
             'name' => $characteristic->name,
             'type' => $characteristic->type,

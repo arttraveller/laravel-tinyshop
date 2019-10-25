@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shop\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use LogicException;

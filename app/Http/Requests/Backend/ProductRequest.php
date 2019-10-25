@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Backend;
 
 use App\Rules\Price;
-use App\Shop\Enums\EProductStatuses;
+use App\Enums\EProductStatuses;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

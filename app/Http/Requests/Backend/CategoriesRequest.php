@@ -29,7 +29,7 @@ class CategoriesRequest extends FormRequest
     {
         return [
             'parent_id' => ['integer', 'nullable', 'exists:shop_categories,id'],
-            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_categories')->ignore($this->category)],
+            'name' => ['required', 'string', 'min:2', 'max:255', Rule::unique('shop_categories')->ignore($this->category)],
             'slug' => ['required', new Slug, Rule::unique('shop_categories')->ignore($this->category)],
             'description' => ['string', 'nullable', 'max:10000'],
 

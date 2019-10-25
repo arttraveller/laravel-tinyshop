@@ -1,10 +1,10 @@
 <?php
 
 // Main
-use App\Shop\Models\Brand;
-use App\Shop\Models\Category;
-use App\Shop\Models\Characteristic;
-use App\Shop\Models\Tag;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Characteristic;
+use App\Models\Tag;
 
 
 Breadcrumbs::for('admin.cp_main', function ($trail) {

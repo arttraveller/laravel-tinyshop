@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\TagsRequest;
-use App\Shop\Models\Tag;
-use App\Shop\Services\TagsManageService;
+use App\Models\Tag;
+use App\Services\TagsManageService;
 use Illuminate\Http\Request;
 
 class TagsController extends BackendController

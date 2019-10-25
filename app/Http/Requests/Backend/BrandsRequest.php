@@ -28,7 +28,7 @@ class BrandsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('shop_brands')->ignore($this->brand)],
+            'name' => ['required', 'string', 'min:2', 'max:255', Rule::unique('shop_brands')->ignore($this->brand)],
             'slug' => ['required', new Slug, Rule::unique('shop_brands')->ignore($this->brand)],
 
             'meta_title' => ['string', 'nullable', 'max:255'],

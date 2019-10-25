@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\ProductRequest;
-use App\Shop\Helpers\Categories;
-use App\Shop\Models\Brand;
-use App\Shop\Models\Product;
-use App\Shop\Services\ProductsManageService;
+use App\Helpers\Categories;
+use App\Models\Brand;
+use App\Models\Product;
+use App\Services\ProductsManageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 

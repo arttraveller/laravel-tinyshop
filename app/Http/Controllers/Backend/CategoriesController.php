@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\CategoriesRequest;
-use App\Shop\Helpers\Categories;
-use App\Shop\Models\Category;
-use App\Shop\Services\CategoriesManageService;
+use App\Helpers\Categories;
+use App\Models\Category;
+use App\Services\CategoriesManageService;
 use Illuminate\Http\Request;
 
 class CategoriesController extends BackendController

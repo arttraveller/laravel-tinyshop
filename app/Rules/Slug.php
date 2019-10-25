@@ -10,7 +10,7 @@ use Illuminate\Contracts\Validation\Rule;
 class Slug implements Rule
 {
 
-    private const MIN_LENGTH = 3;
+    private const MIN_LENGTH = 2;
     private const MAX_LENGTH = 255;
 
     /**

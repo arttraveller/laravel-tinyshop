@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\BrandsRequest;
-use App\Shop\Models\Brand;
-use App\Shop\Services\BrandsManageService;
+use App\Models\Brand;
+use App\Services\BrandsManageService;
 use Illuminate\Http\Request;
 
 class BrandsController extends BackendController

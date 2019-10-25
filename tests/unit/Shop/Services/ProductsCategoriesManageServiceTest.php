@@ -1,10 +1,10 @@
 <?php
 
-use App\Shop\Models\Brand;
-use App\Shop\Models\Category;
-use App\Shop\Models\Product;
-use App\Shop\Models\ProductToCategory;
-use App\Shop\Services\ProductsCategoriesManageService;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\ProductToCategory;
+use App\Services\ProductsCategoriesManageService;
 use Tests\unit\BaseUnit;
 
 class ProductsCategoriesManageServiceTest extends BaseUnit

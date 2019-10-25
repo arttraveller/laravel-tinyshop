@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Shop\Services;
+namespace App\Services;
 
 use App\Http\Requests\Backend\BrandsRequest;
-use App\Shop\Models\Brand;
+use App\Models\Brand;
 
 /**
  * Service for brands management

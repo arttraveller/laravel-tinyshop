@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Category;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Kalnoy\Nestedset\Collection;
 

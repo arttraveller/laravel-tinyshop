@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Shop\Models;
+namespace App\Models;
 
-use App\Shop\Enums\EProductStatuses;
+use App\Enums\EProductStatuses;
 use DomainException;
 use Kyslik\ColumnSortable\Sortable;
 

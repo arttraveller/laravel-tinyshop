@@ -7,7 +7,7 @@
             'code' => null,
             'name' => null,
             'description' => null,
-            'productStatuses' => \App\Shop\Enums\EProductStatuses::getLabels(),
+            'productStatuses' => \App\Enums\EProductStatuses::getLabels(),
             'status' => null,
             'productCategories' => $productCategories,
             'mainCategoryId' => null,

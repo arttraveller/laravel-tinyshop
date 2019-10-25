@@ -33,7 +33,7 @@
                     <td>{{ $oneProduct->id }}</td>
                     <td>{{ $oneProduct->code }}</td>
                     <td><a href="{{ route('admin.products.show', $oneProduct) }}">{{ $oneProduct->name }}</a></td>
-                    <td>{{ \App\Shop\Enums\EProductStatuses::getLabel($oneProduct->status) }}</td>
+                    <td>{{ \App\Enums\EProductStatuses::getLabel($oneProduct->status) }}</td>
                     <td>{{ $oneProduct->brand->name }}</td>
                     <td>{{ $oneProduct->price }}</td>
                     <td class="grid-action-column">

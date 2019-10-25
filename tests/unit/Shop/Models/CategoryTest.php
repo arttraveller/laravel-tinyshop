@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Category;
+use App\Models\Category;
 use Tests\unit\BaseUnit;
 
 class CategoryTest extends BaseUnit

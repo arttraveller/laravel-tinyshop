@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Shop\Services;
+namespace App\Services;
 
-use App\Shop\Models\Characteristic;
+use App\Models\Characteristic;
 
 /**
  * Service for characteristics management

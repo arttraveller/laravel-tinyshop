@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Characteristic;
+use App\Models\Characteristic;
 use Illuminate\Database\Seeder;
 
 class ShopCharacteristicTableSeeder extends Seeder

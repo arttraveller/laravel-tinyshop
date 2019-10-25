@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Shop\Services;
+namespace App\Services;
 
-use App\Shop\Models\Product;
-use App\Shop\Models\ProductToCategory;
+use App\Models\Product;
+use App\Models\ProductToCategory;
 
 /**
  * Service for product categories management

@@ -1,8 +1,8 @@
 <?php
 
-use App\Shop\Enums\ECharacteristicTypes;
-use App\Shop\Models\Characteristic;
-use App\Shop\Services\CharacteristicsManageService;
+use App\Enums\ECharacteristicTypes;
+use App\Models\Characteristic;
+use App\Services\CharacteristicsManageService;
 use Tests\unit\BaseUnit;
 
 class CharacteristicManageServiceTest extends BaseUnit

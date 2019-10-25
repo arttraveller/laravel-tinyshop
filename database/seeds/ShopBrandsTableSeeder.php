@@ -1,6 +1,6 @@
 <?php
 
-use App\Shop\Models\Brand;
+use App\Models\Brand;
 use Illuminate\Database\Seeder;
 
 class ShopBrandsTableSeeder extends Seeder

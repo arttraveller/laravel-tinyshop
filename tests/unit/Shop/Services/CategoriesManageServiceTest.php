@@ -1,7 +1,7 @@
 <?php
 
-use App\Shop\Models\Category;
-use App\Shop\Services\CategoriesManageService;
+use App\Models\Category;
+use App\Services\CategoriesManageService;
 use Tests\unit\BaseUnit;
 
 class CategoriesManageServiceTest extends BaseUnit

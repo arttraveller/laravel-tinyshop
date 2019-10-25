@@ -1,8 +1,8 @@
 <?php
 
-use App\Shop\Models\Brand;
-use App\Shop\Models\Category;
-use App\Shop\Models\Product;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Tests\unit\BaseUnit;
 
 class BrandTest extends BaseUnit

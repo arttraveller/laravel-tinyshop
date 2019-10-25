@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Shop\Services;
+namespace App\Services;
 
-use App\Shop\Enums\EProductStatuses;
-use App\Shop\Models\Product;
+use App\Enums\EProductStatuses;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Throwable;
 

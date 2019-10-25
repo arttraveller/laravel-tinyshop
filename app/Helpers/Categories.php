@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Shop\Helpers;
+namespace App\Helpers;
 
-use App\Shop\Models\Category;
+use App\Models\Category;
 use Illuminate\Support\Arr;
 
 /**

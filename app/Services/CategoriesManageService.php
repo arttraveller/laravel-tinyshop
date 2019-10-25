@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Shop\Services;
+namespace App\Services;
 
-use App\Shop\Models\Category;
+use App\Models\Category;
 
 /**
  * Service for categories management

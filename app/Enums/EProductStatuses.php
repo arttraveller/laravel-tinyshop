@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Shop\Enums;
-
-use App\Enums\BaseEnum;
+namespace App\Enums;
 
 /**
  * Product statuses

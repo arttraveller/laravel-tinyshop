@@ -30,7 +30,7 @@
                 <tr>
                     <td>{{ $oneChar->id }}</td>
                     <td><a href="{{ route('admin.characteristics.show', $oneChar) }}">{{ $oneChar->name }}</a></td>
-                    <td>{{ \App\Shop\Enums\ECharacteristicTypes::getLabel($oneChar->type) }}</td>
+                    <td>{{ \App\Enums\ECharacteristicTypes::getLabel($oneChar->type) }}</td>
                     <td>{{ \App\Enums\EBool::getLabel($oneChar->is_required) }}</td>
                     <td class="grid-action-column">
                         @include('backend.partials._actions_column', ['resource' => $oneChar, 'resourceRouteId' => 'characteristics'])
