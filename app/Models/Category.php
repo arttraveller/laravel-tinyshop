@@ -37,15 +37,14 @@ class Category extends ShopModel
     protected $table = 'shop_categories';
 
 
-
     /**
-     * Get products where main_category_id is it category.
+     * The products that belong to the category.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function mainProducts()
+    public function products()
     {
-        return $this->hasMany(Product::class, 'main_category_id');
+        return $this->belongsToMany('App\Models\Product', 'shop_products_to_categories');
     }
 
 
@@ -54,10 +53,8 @@ class Category extends ShopModel
      */
     public function canDelete(): bool
     {
-        $numProducts = ($this->main_products_count === null) ? $this->mainProducts()->count() : $this->main_products_count;
-        $result = ($numProducts > 0) ? false : true;
-
-        return $result;
+        // TODO
+        return true;
     }
 
 }

@@ -12,25 +12,12 @@ class ProductsCategoriesManageService
 {
 
     /**
-     * Changes the main category.
-     *
-     * @param Product $product
-     * @param int $newMainCategoryId
-     */
-    public function changeMainCategory(Product $product, int $newMainCategoryId): void
-    {
-        $product->main_category_id = $newMainCategoryId;
-        $product->saveOrFail();
-    }
-
-
-    /**
-     * Adds another additional category.
+     * Adds another category.
      *
      * @param Product $product
      * @param int $categoryId
      */
-    public function assignAddiCategory(Product $product, int $categoryId): void
+    public function assignCategory(Product $product, int $categoryId): void
     {
         $hasIt = (bool)ProductToCategory::
                         where('product_id', $product->id)
@@ -50,7 +37,7 @@ class ProductsCategoriesManageService
      *
      * @param Product $product
      */
-    public function revokeAllAddiCategories(Product $product): void
+    public function revokeAllCategories(Product $product): void
     {
         ProductToCategory::where('product_id', $product->id)->delete();
     }

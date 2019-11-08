@@ -30,22 +30,23 @@ class ProductsManageService
                 'code' => $data['code'],
                 'name' => $data['name'],
                 'description' => $data['description'],
-                // Status for writing to the DB, below will be used setNewStatus method
+                // Status for creation, below will be used setNewStatus method
                 'status' => EProductStatuses::DRAFT,
-                'main_category_id' => $data['main_category_id'],
                 'brand_id' => $data['brand_id'],
                 'meta_title' => $data['meta_title'],
                 'meta_description' => $data['meta_description'],
                 'meta_keywords' => $data['meta_keywords'],
             ]);
+
             // 2. Set price
             if ($data['price'] > 0) {
                 $newProduct->setPrice($data['price'], $data['old_price']);
             }
+
             // 3. Set status
             $newProduct->setNewStatus($data['status']);
 
-            // 4. Assign additional categories
+            // 4. Assign categories
             // TODO
             // 5a. Assign existing tags
             // TODO

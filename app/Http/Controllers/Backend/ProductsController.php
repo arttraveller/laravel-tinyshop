@@ -79,4 +79,15 @@ class ProductsController extends BackendController
         return redirect()->route('admin.products.index');
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Product $product)
+    {
+    }
+
 }

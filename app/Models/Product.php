@@ -14,7 +14,6 @@ use Kyslik\ColumnSortable\Sortable;
  * @property string $name
  * @property string $description
  * @property int $status
- * @property int $main_category_id
  * @property int $brand_id
  * @property float $old_price
  * @property float $price
@@ -45,7 +44,6 @@ class Product extends ShopModel
         'name',
         'description',
         'status',
-        'main_category_id',
         'brand_id',
         'meta_title',
         'meta_description',
@@ -57,18 +55,6 @@ class Product extends ShopModel
      * {@inheritdoc}
      */
     protected $table = 'shop_products';
-
-
-
-    /**
-     * Get main category.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function mainCategory()
-    {
-        return $this->belongsTo(Category::class, 'main_category_id');
-    }
 
 
     /**
@@ -91,6 +77,15 @@ class Product extends ShopModel
         return true;
     }
 
+    /**
+     * The categories that belong to the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany('App\Models\Category', 'shop_products_to_categories');
+    }
 
     /**
      * Return is the this product active.

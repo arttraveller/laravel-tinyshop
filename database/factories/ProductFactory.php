@@ -15,7 +15,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'name' => $productName,
         'description' => $faker->text,
         'status' => random_int(EProductStatuses::DRAFT, EProductStatuses::ACTIVE),
-        'main_category_id' => $faker->randomElement($catsIds),
         'brand_id' => $faker->randomElement($brandsIds),
         'old_price' => $faker->randomFloat(2, 1, 9999),
         'price' => $faker->randomFloat(2, 1, 9999),

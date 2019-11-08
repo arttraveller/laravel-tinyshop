@@ -19,7 +19,6 @@ class ProductsManageServiceTest extends BaseUnit
             'name' => 'New product',
             'description' => 'Text',
             'status' => EProductStatuses::ACTIVE,
-            'main_category_id' => $category->id,
             'brand_id' => $brand->id,
             'old_price' => 2500.00,
             'price' => 999.99,
