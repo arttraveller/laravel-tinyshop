@@ -6,7 +6,8 @@ use App\Http\Requests\Backend\ProductRequest;
 use App\Helpers\Categories;
 use App\Models\Brand;
 use App\Models\Product;
-use App\Services\ProductsManageService;
+use App\Models\Tag;
+use App\Services\Product\ProductsManageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -56,12 +57,14 @@ class ProductsController extends BackendController
      */
     public function create()
     {
-        $productCategories = Categories::pluckAllCategories();
-        $productBrands = Arr::pluck(Brand::all(), 'name', 'id');
+        $allBrands = Arr::pluck(Brand::all(), 'name', 'id');
+        $allCategories = Categories::pluckAllCategories();
+        $allTags = Arr::pluck(Tag::all(), 'name', 'id');
 
         return view('backend.products.create', [
-            'productCategories' => $productCategories,
-            'productBrands' => $productBrands,
+            'allBrands' => $allBrands,
+            'allCategories' => $allCategories,
+            'allTags' => $allTags,
         ]);
     }
 
@@ -88,6 +91,20 @@ class ProductsController extends BackendController
      */
     public function show(Product $product)
     {
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('admin.products.index');
     }
 
 }

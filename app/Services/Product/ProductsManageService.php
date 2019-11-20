@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Product;
 
 use App\Enums\EProductStatuses;
 use App\Models\Product;
@@ -12,6 +12,18 @@ use Throwable;
  */
 class ProductsManageService
 {
+
+    /**
+     * @param ProductsCategoriesManageService $pCategoriesService
+     * @param ProductsTagsManageService $pTagsService
+     * @return void
+     */
+    public function __construct(ProductsCategoriesManageService $pCategoriesService, ProductsTagsManageService $pTagsService)
+    {
+        $this->productsCategoriesManageService = $pCategoriesService;
+        $this->productsTagsManageService = $pTagsService;
+    }
+
 
     /**
      * Creates new product.
@@ -47,11 +59,26 @@ class ProductsManageService
             $newProduct->setNewStatus($data['status']);
 
             // 4. Assign categories
-            // TODO
+            if (isset($data['categories'])) {
+                foreach ($data['categories'] as $oneCatId) {
+                    $this->productsCategoriesManageService->assignCategory($newProduct, $oneCatId);
+                }
+            }
+
             // 5a. Assign existing tags
-            // TODO
+            if (isset($data['exist_tags'])) {
+                foreach ($data['exist_tags'] as $existTagId) {
+                    $this->productsTagsManageService->assignExistingTag($newProduct, $existTagId);
+                }
+            }
             // 5b. Create and assign new tags
-            // TODO
+            if (isset($data['new_tags'])) {
+                $newTags = explode("\n", $data['new_tags']);
+                foreach ($newTags as $newTagName) {
+                    $this->productsTagsManageService->assignNewTag($newProduct, $newTagName);
+                }
+            }
+
             // 6. Set characteristics
             // TODO
 

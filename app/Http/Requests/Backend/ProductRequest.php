@@ -48,6 +48,12 @@ class ProductRequest extends FormRequest
             'old_price' => ['nullable', new Price],
             'price' => ['nullable', new Price, 'required_if:status,==,' . EProductStatuses::ACTIVE],
 
+            'categories'    => 'array',
+            'categories.*'  => 'integer',
+            'exist_tags'    => 'array',
+            'exist_tags.*'  => 'integer',
+            'new_tags'    => ['string', 'nullable', 'max:10000'],
+
             'meta_title' => ['string', 'nullable', 'max:255'],
             'meta_description' => ['string',  'nullable', 'max:255'],
             'meta_keywords' => ['string', 'nullable', 'max:255'],

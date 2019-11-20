@@ -4,7 +4,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductToCategory;
-use App\Services\ProductsCategoriesManageService;
+use App\Services\Product\ProductsCategoriesManageService;
 use Tests\unit\BaseUnit;
 
 class ProductsCategoriesManageServiceTest extends BaseUnit

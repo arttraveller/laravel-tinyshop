@@ -4,15 +4,18 @@
     {!! Form::open()->route('admin.products.store') !!}
 
         @include('backend.products._form', [
+            'allBrands' => $allBrands,
+            'allCategories' => $allCategories,
+            'allStatuses' => \App\Enums\EProductStatuses::getLabels(),
+
             'code' => null,
             'name' => null,
             'description' => null,
-            'productStatuses' => \App\Enums\EProductStatuses::getLabels(),
             'status' => null,
-            'productCategories' => $productCategories,
-            'mainCategoryId' => null,
-            'productBrands' => $productBrands,
             'brandId' => null,
+
+            'currentCategories' => [],
+            'currentTags' => [],
 
             'metaTitle' => null,
             'metaDescription' => null,

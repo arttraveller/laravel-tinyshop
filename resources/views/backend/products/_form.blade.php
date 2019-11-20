@@ -11,9 +11,9 @@
 
                 {!! Form::textarea('description', __('Description'))->value($description) !!}
 
-                {!! Form::select('status', __('Status'), $productStatuses)->value($status) !!}
+                {!! Form::select('status', __('Status'), $allStatuses)->value($status) !!}
 
-                {!! Form::select('brand_id', __('Brand'), array_replace(['' => ''], $productBrands))->value($brandId) !!}
+                {!! Form::select('brand_id', __('Brand'), array_replace(['' => ''], $allBrands))->value($brandId) !!}
 
 
                 <div class="row">
@@ -52,11 +52,25 @@
                     <div class="card-header bg-secondary text-white">{{ __('Categories') }}</div>
                     <div class="card-body">
 
-                        {!! Form::select('main_category_id', __('Main category'), array_replace(['' => ''], $productCategories))->value($mainCategoryId) !!}
+                        {!! Form::select('categories', __('Categories'), array_replace(['' => ''], $allCategories))->multiple()->value($currentCategories) !!}
 
                     </div>
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="card-header bg-secondary text-white">{{ __('Tags') }}</div>
+                    <div class="card-body">
+
+                        {!! Form::select('exist_tags', __('Tags'), $allTags)->multiple()->value($currentTags) !!}
+
+                        {!! Form::textarea('new_tags', __('New')) !!}
+
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="row">
