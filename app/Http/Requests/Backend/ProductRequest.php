@@ -52,7 +52,7 @@ class ProductRequest extends FormRequest
             'categories.*'  => 'integer',
             'exist_tags'    => 'array',
             'exist_tags.*'  => 'integer',
-            'new_tags'    => ['string', 'nullable', 'max:10000'],
+            'new_tags'    => ['string', 'nullable', 'min:3', 'max:10000'],
 
             'meta_title' => ['string', 'nullable', 'max:255'],
             'meta_description' => ['string',  'nullable', 'max:255'],

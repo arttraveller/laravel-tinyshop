@@ -23,7 +23,6 @@ use Kyslik\ColumnSortable\Sortable;
  * @property string $meta_keywords
  * @property integer $created_at
  * @property integer $updated_at
- * @property Category $mainCategory
  * @property Brand $brand
  */
 class Product extends ShopModel
@@ -77,6 +76,7 @@ class Product extends ShopModel
         return true;
     }
 
+
     /**
      * The categories that belong to the product.
      *
@@ -86,6 +86,18 @@ class Product extends ShopModel
     {
         return $this->belongsToMany('App\Models\Category', 'shop_products_to_categories');
     }
+
+
+    /**
+     * The tags that belong to the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag', 'shop_products_to_tags');
+    }
+
 
     /**
      * Return is the this product active.
@@ -107,7 +119,7 @@ class Product extends ShopModel
     public function setPrice($price, $oldPrice = null): void
     {
         if ($price <= 0) {
-           throw new DomainException('Incorrect price');
+            throw new DomainException('Incorrect price');
         }
         $this->price = round($price, 2);
         if ($oldPrice > 0) {
@@ -128,8 +140,8 @@ class Product extends ShopModel
             return;
         }
         $availableStatuses = array_keys(EProductStatuses::getLabels());
-        if ( !in_array($newStatus, $availableStatuses)) {
-           throw new DomainException('Incorrect status');
+        if (!in_array($newStatus, $availableStatuses)) {
+            throw new DomainException('Incorrect status');
         }
         // Status Active can only be available for product with price
         if (($newStatus == EProductStatuses::ACTIVE) && ($this->price <= 0)) {

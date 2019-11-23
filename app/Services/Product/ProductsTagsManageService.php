@@ -49,4 +49,15 @@ class ProductsTagsManageService
         $this->assignExistingTag($product, $newTag->id);
     }
 
+
+    /**
+     * Revoke all tags.
+     *
+     * @param Product $product
+     */
+    public function revokeAllTags(Product $product): void
+    {
+        ProductToTag::where('product_id', $product->id)->delete();
+    }
+
 }

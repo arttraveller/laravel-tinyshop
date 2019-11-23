@@ -4,6 +4,7 @@
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Characteristic;
+use App\Models\Product;
 use App\Models\Tag;
 
 
@@ -116,4 +117,9 @@ Breadcrumbs::for('admin.products.index', function ($trail) {
 Breadcrumbs::for('admin.products.create', function ($trail) {
     $trail->parent('admin.products.index');
     $trail->push(__('Create'), route('admin.products.create'));
+});
+
+Breadcrumbs::for('admin.products.edit', function ($trail, Product $product) {
+    $trail->parent('admin.products.index');
+    $trail->push(__('Edit'), route('admin.products.edit', $product));
 });

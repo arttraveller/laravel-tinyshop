@@ -13,6 +13,8 @@
             'description' => null,
             'status' => null,
             'brandId' => null,
+            'price' => null,
+            'oldPrice' => null,
 
             'currentCategories' => [],
             'currentTags' => [],

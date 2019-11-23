@@ -18,20 +18,20 @@
 
                 <div class="row">
 
-                    <div class="col-9">
+                    <div class="col-6">
                         <div class="form-group">
                             <label for="price" class="col-form-label"><strong> {{ __('Current price') }} </strong></label>
-                            <input id="price" type="number" min="0.00"  step="0.01" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" value="{{ old('price') }}" />
+                            <input id="price" type="number" min="0.00"  step="0.01" class="form-control{{ $errors->has('price') ? ' is-invalid' : '' }}" name="price" value="{{ old('price') ? old('price') : $price }}" />
                             @if ($errors->has('price'))
                                 <span class="invalid-feedback">{{ $errors->first('price') }}</span>
                             @endif
                         </div>
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-6">
                         <div class="form-group">
                             <label for="old_price" class="col-form-label">{{ __('Old price') }}</label>
-                            <input id="old_price" type="number" min="0.00"  step="0.01" class="form-control{{ $errors->has('old_price') ? ' is-invalid' : '' }}" name="old_price" value="{{ old('old_price') }}" />
+                            <input id="old_price" type="number" min="0.00"  step="0.01" class="form-control{{ $errors->has('old_price') ? ' is-invalid' : '' }}" name="old_price" value="{{ old('old_price') ? old('old_price') : $oldPrice }}" />
                             @if ($errors->has('old_price'))
                                 <span class="invalid-feedback">{{ $errors->first('old_price') }}</span>
                             @endif

@@ -41,4 +41,21 @@ class ProductsTagsManageServiceTest extends BaseUnit
         ]);
     }
 
+
+    public function testRevokeAllTags()
+    {
+        $brand = $this->tester->have(Brand::class);
+        $tag1 = $this->tester->have(Tag::class);
+        $tag2 = $this->tester->have(Tag::class);
+        $product1 = $this->tester->have(Product::class);
+        $product2 = $this->tester->have(Product::class);
+        $this->tester->haveRecord(ProductToTag::class, ['product_id' => $product1->id, 'tag_id' => $tag1->id]);
+        $this->tester->haveRecord(ProductToTag::class, ['product_id' => $product2->id, 'tag_id' => $tag2->id]);
+
+        (new ProductsTagsManageService())->revokeAllTags($product1);
+        $this->tester->dontSeeRecord(ProductToTag::class, ['product_id' => $product1->id]);
+        // Did not affect other products?
+        $this->tester->seeRecord(ProductToTag::class, ['product_id' => $product2->id]);
+    }
+
 }

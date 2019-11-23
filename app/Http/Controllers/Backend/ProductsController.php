@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Backend\ProductRequest;
 use App\Helpers\Categories;
+use App\Http\Requests\Backend\ProductRequest;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Tag;
@@ -91,6 +91,42 @@ class ProductsController extends BackendController
      */
     public function show(Product $product)
     {
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Product $product
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Product $product)
+    {
+        $allBrands = Arr::pluck(Brand::all(), 'name', 'id');
+        $allCategories = Categories::pluckAllCategories();
+        $allTags = Arr::pluck(Tag::all(), 'name', 'id');
+
+        return view('backend.products.edit', [
+            'allBrands' => $allBrands,
+            'allCategories' => $allCategories,
+            'allTags' => $allTags,
+            'product' => $product
+        ]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param ProductRequest $request
+     * @param Product $tag
+     * @return \Illuminate\Http\Response
+     */
+    public function update(ProductRequest $request, Product $product)
+    {
+        $this->productsManageService->update($product, $request->all());
+
+        return redirect()->route('admin.products.index');
     }
 
 

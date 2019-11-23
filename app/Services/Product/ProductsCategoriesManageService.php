@@ -33,7 +33,7 @@ class ProductsCategoriesManageService
 
 
     /**
-     * Revoke all additional categories.
+     * Revoke all categories.
      *
      * @param Product $product
      */
