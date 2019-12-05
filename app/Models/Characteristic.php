@@ -40,6 +40,28 @@ class Characteristic extends ShopModel
     protected $table = 'shop_characteristics';
 
 
+    /**
+     * Does the characteristic has variants.
+     *
+     * @return bool
+     */
+    public function hasVariants(): bool
+    {
+        return count($this->getVariants()) > 0 ? true : false;
+    }
+
+
+    /**
+     * Get all variants.
+     *
+     * @return array
+     */
+    public function getVariants(): array
+    {
+        // TODO variants in JSON field
+        return empty($this->variants) ? [] : explode("\n", $this->variants);
+    }
+
 
     /**
      * {@inheritdoc}

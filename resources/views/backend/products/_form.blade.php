@@ -57,7 +57,9 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
                     <div class="card-header bg-secondary text-white">{{ __('Tags') }}</div>
@@ -70,7 +72,40 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="card-header bg-secondary text-white">{{ __('Characteristics') }}</div>
+                    <div class="card-body">
+                        @foreach ($allCharacteristics as $oneCh)
+                            @php
+                                $id = $oneCh->id;
+                                $oldValue = old('characteristics.' . $id);
+                                $dbValue = $currentCharacteristics[$id] ?? null;
+                                $fieldValue = $oldValue ? $oldValue : $dbValue;
+                                $inputName = 'characteristics[' . $id . ']';
+                            @endphp
+
+                            <label for="{{ $inputName }}" class="col-form-label">{{ $oneCh->name }}</label>
+
+                            @if ($oneCh->hasVariants())
+                                @php
+                                    $allVariants = array_replace(['' => ''], App\Helpers\Characteristics::getVariantsList($oneCh));
+                                @endphp
+                                <select id="{{ $inputName }}" class="form-control" name="{{ $inputName }}">
+                                    @foreach ($allVariants as $oneVariant)
+                                        <option {{ $oneVariant === $fieldValue ? 'selected' : '' }} value="{{ $oneVariant }}">{{ $oneVariant }}</option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <input id="{{ $inputName }}" class="form-control" name="{{ $inputName }}" value="{{ $fieldValue }}" />
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row">

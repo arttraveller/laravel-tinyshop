@@ -100,6 +100,17 @@ class Product extends ShopModel
 
 
     /**
+     * The characteristics values.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function characteristicsValues()
+    {
+        return $this->hasMany('App\Models\ProductCharacteristicValue');
+    }
+
+
+    /**
      * Return is the this product active.
      *
      * @return bool

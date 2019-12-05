@@ -18,6 +18,7 @@
 
             'currentCategories' => Arr::pluck($product->categories->all(), 'name', 'id'),
             'currentTags' => Arr::pluck($product->tags->all(), 'name', 'id'),
+            'currentCharacteristics' => $currentCharacteristics,
 
             'metaTitle' => $product->meta_title,
             'metaDescription' => $product->meta_description,

@@ -14,14 +14,28 @@ class ProductsManageService
 {
 
     /**
+     * @var ProductsCategoriesManageService
+     */
+    private $categoriesManager;
+    /**
+     * @var ProductsCharacteristicsManageService
+     */
+    private $characteristicsManager;
+    /**
+     * @var ProductsTagsManageService
+     */
+    private $tagsManager;
+
+    /**
      * @param ProductsCategoriesManageService $pCategoriesService
      * @param ProductsTagsManageService $pTagsService
      * @return void
      */
-    public function __construct(ProductsCategoriesManageService $pCategoriesService, ProductsTagsManageService $pTagsService)
+    public function __construct(ProductsCategoriesManageService $pCategoriesService, ProductsTagsManageService $pTagsService, ProductsCharacteristicsManageService $pCharacteristicsService)
     {
-        $this->productsCategoriesManageService = $pCategoriesService;
-        $this->productsTagsManageService = $pTagsService;
+        $this->categoriesManager = $pCategoriesService;
+        $this->tagsManager = $pTagsService;
+        $this->characteristicsManager = $pCharacteristicsService;
     }
 
 
@@ -61,26 +75,28 @@ class ProductsManageService
             // 4. Assign categories
             if (isset($data['categories'])) {
                 foreach ($data['categories'] as $oneCatId) {
-                    $this->productsCategoriesManageService->assignCategory($newProduct, $oneCatId);
+                    $this->categoriesManager->assignCategory($newProduct, $oneCatId);
                 }
             }
 
             // 5a. Assign existing tags
             if (isset($data['exist_tags'])) {
                 foreach ($data['exist_tags'] as $existTagId) {
-                    $this->productsTagsManageService->assignExistingTag($newProduct, $existTagId);
+                    $this->tagsManager->assignExistingTag($newProduct, $existTagId);
                 }
             }
             // 5b. Create and assign new tags
             if (isset($data['new_tags'])) {
                 $newTags = explode("\n", $data['new_tags']);
                 foreach ($newTags as $newTagName) {
-                    $this->productsTagsManageService->assignNewTag($newProduct, $newTagName);
+                    $this->tagsManager->assignNewTag($newProduct, $newTagName);
                 }
             }
 
             // 6. Set characteristics
-            // TODO
+            foreach ($data['characteristics'] as $charId => $charValue) {
+                $this->characteristicsManager->setValue($newProduct->id, $charId, $charValue);
+            }
 
             DB::commit();
             $result = $newProduct;
@@ -124,32 +140,34 @@ class ProductsManageService
             $product->setNewStatus($data['status']);
 
             // 4a. Revoke all categories
-            $this->productsCategoriesManageService->revokeAllCategories($product);
+            $this->categoriesManager->revokeAllCategories($product);
             // 4b. Assign categories
             if (isset($data['categories'])) {
                 foreach ($data['categories'] as $oneCatId) {
-                    $this->productsCategoriesManageService->assignCategory($product, $oneCatId);
+                    $this->categoriesManager->assignCategory($product, $oneCatId);
                 }
             }
 
             // 5a. Revoke all tags
-            $this->productsTagsManageService->revokeAllTags($product);
+            $this->tagsManager->revokeAllTags($product);
             // 5b. Assign existing tags
             if (isset($data['exist_tags'])) {
                 foreach ($data['exist_tags'] as $existTagId) {
-                    $this->productsTagsManageService->assignExistingTag($product, $existTagId);
+                    $this->tagsManager->assignExistingTag($product, $existTagId);
                 }
             }
             // 5c. Create and assign new tags
             if (isset($data['new_tags'])) {
                 $newTags = explode("\n", $data['new_tags']);
                 foreach ($newTags as $newTagName) {
-                    $this->productsTagsManageService->assignNewTag($product, $newTagName);
+                    $this->tagsManager->assignNewTag($product, $newTagName);
                 }
             }
 
             // 6. Set characteristics
-            // TODO
+            foreach ($data['characteristics'] as $charId => $charValue) {
+                $this->characteristicsManager->setValue($product->id, $charId, $charValue);
+            }
 
             DB::commit();
         } catch(Throwable $e) {
