@@ -2,12 +2,12 @@
 
 namespace App\Helpers;
 
-use App\Models\Characteristic;
+use App\Models\Attribute;
 
 /**
- * Characteristics helper
+ * Attributes helper
  */
-class Characteristics
+class Attributes
 {
 
     /**
@@ -15,9 +15,9 @@ class Characteristics
      *
      * @return array
      */
-    public static function getVariantsList(Characteristic $characteristic): array
+    public static function getVariantsList(Attribute $attribute): array
     {
-        $result = $characteristic->getVariants();
+        $result = $attribute->getVariants();
         if (count($result) > 0) {
             $variants = array_map('trim', $result);
             $result = array_combine($variants, $variants);

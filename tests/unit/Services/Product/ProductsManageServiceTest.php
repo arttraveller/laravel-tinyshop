@@ -1,11 +1,11 @@
 <?php
 
 use App\Enums\EProductStatuses;
+use App\Models\Attribute;
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Characteristic;
 use App\Models\Product;
-use App\Models\ProductCharacteristicValue;
+use App\Models\ProductAttributeValue;
 use App\Models\ProductToCategory;
 use App\Models\ProductToTag;
 use App\Models\Tag;
@@ -46,14 +46,14 @@ class ProductsManageServiceTest extends BaseUnit
             'tag_id' => array_shift($productData['exist_tags']),
         ]);
 
-        // Check characteristics
-        $this->tester->seeRecord(ProductCharacteristicValue::class, [
+        // Check attributes
+        $this->tester->seeRecord(ProductAttributeValue::class, [
             'product_id' => $product->id,
-            'characteristic_id' => (array_key_first($productData['characteristics'])),
+            'attribute_id' => (array_key_first($productData['attributes'])),
         ]);
-        $this->tester->seeRecord(ProductCharacteristicValue::class, [
+        $this->tester->seeRecord(ProductAttributeValue::class, [
             'product_id' => $product->id,
-            'characteristic_id' => (array_key_last($productData['characteristics'])),
+            'attribute_id' => (array_key_last($productData['attributes'])),
         ]);
     }
 
@@ -71,7 +71,7 @@ class ProductsManageServiceTest extends BaseUnit
 
         $newCategory = $this->tester->have(Category::class);
         $newTag = $this->tester->have(Tag::class);
-        $newCharacteristic = $this->tester->have(Characteristic::class);
+        $newAttribute = $this->tester->have(Attribute::class);
         $newProductData = [
             'code' => $oldProduct->code,
             'name' => 'Updated old product',
@@ -87,8 +87,8 @@ class ProductsManageServiceTest extends BaseUnit
             'exist_tags' => [
                 $newTag->id
             ],
-            'characteristics' => [
-                $newCharacteristic->id => 'PCV value'
+            'attributes' => [
+                $newAttribute->id => 'PCV value'
             ],
         ];
 
@@ -114,10 +114,10 @@ class ProductsManageServiceTest extends BaseUnit
         expect('Correct num tags', count($newProductTags))->equals(1);
         expect('New tags assigned', (array_shift($newProductTags)->id === $newTag->id))->true();
 
-        // Check characteristics
-        $this->tester->seeRecord(ProductCharacteristicValue::class, [
+        // Check attributes
+        $this->tester->seeRecord(ProductAttributeValue::class, [
             'product_id' => $newProduct->id,
-            'characteristic_id' => $newCharacteristic->id,
+            'attribute_id' => $newAttribute->id,
             'value' => 'PCV value',
         ]);
     }
@@ -128,8 +128,8 @@ class ProductsManageServiceTest extends BaseUnit
         $brand = $this->tester->have(Brand::class);
         $category = $this->tester->have(Category::class);
         $existTag = $this->tester->have(Tag::class);
-        $characteristic1 = $this->tester->have(Characteristic::class);
-        $characteristic2 = $this->tester->have(Characteristic::class);
+        $attribute1 = $this->tester->have(Attribute::class);
+        $attribute2 = $this->tester->have(Attribute::class);
 
         return [
             'code' => '12345',
@@ -146,9 +146,9 @@ class ProductsManageServiceTest extends BaseUnit
             'exist_tags' => [
                 $existTag->id
             ],
-            'characteristics' => [
-                $characteristic1->id => 'value1',
-                $characteristic2->id => 'value2',
+            'attributes' => [
+                $attribute1->id => 'value1',
+                $attribute2->id => 'value2',
             ],
 
             'meta_title' => 'New product title',

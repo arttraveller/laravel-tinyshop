@@ -5,13 +5,13 @@ namespace App\Models;
 use App\Traits\HasCompositePrimaryKey;
 
 /**
- * Product characteristic value (EAV) model
+ * Product attribute value (EAV) model
  *
  * @property integer $product_id
- * @property integer $characteristic_id
+ * @property integer $attribute_id
  * @property mixed $value
  */
-class ProductCharacteristicValue extends ShopModel
+class ProductAttributeValue extends ShopModel
 {
     use HasCompositePrimaryKey;
 
@@ -23,14 +23,14 @@ class ProductCharacteristicValue extends ShopModel
     /**
      * {@inheritdoc}
      */
-    protected $primaryKey = ['product_id', 'characteristic_id'];
+    protected $primaryKey = ['product_id', 'attribute_id'];
 
     /**
      * {@inheritdoc}
      */
     protected $fillable = [
         'product_id',
-        'characteristic_id',
+        'attribute_id',
         'value',
     ];
 
@@ -38,7 +38,7 @@ class ProductCharacteristicValue extends ShopModel
     /**
      * {@inheritdoc}
      */
-    protected $table = 'shop_products_characteristics_values';
+    protected $table = 'shop_products_attributes_values';
 
 
 

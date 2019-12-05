@@ -25,8 +25,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link{{ Request::is( 'admin/characteristics*') ? ' active' : '' }}" href="{{ route('admin.characteristics.index') }}">
-            {{ __('Characteristics') }}
+        <a class="nav-link{{ Request::is( 'admin/attributes*') ? ' active' : '' }}" href="{{ route('admin.attributes.index') }}">
+            {{ __('Attributes') }}
         </a>
     </li>
     <li class="nav-item">

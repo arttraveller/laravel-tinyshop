@@ -2,27 +2,27 @@
 
 namespace App\Services\Product;
 
-use App\Models\ProductCharacteristicValue;
+use App\Models\ProductAttributeValue;
 
 /**
- * Service for product characteristics management
+ * Service for product attributes management
  */
-class ProductsCharacteristicsManageService
+class ProductsAttributesManageService
 {
 
     /**
-     * Set product characteristic value.
+     * Set product attribute value.
      *
      * @param int $productId product ID
-     * @param int $characteristicId characteristic ID
-     * @param mixed $value characteristic value
+     * @param int $attributeId attribute ID
+     * @param mixed $value attribute value
      */
-    public function setValue(int $productId, int $characteristicId, $dirtyValue): void
+    public function setValue(int $productId, int $attributeId, $dirtyValue): void
     {
         $pureValue = empty($dirtyValue) ? null : $dirtyValue;
-        $pcvModel = ProductCharacteristicValue::where([
+        $pcvModel = ProductAttributeValue::where([
             'product_id' => $productId,
-            'characteristic_id' => $characteristicId,
+            'attribute_id' => $attributeId,
         ])->first();
 
         // Normal value
@@ -33,9 +33,9 @@ class ProductsCharacteristicsManageService
                 $pcvModel->saveOrFail();
             } else {
                 // Create new record only if value not empty
-                $pcvModel = new ProductCharacteristicValue();
+                $pcvModel = new ProductAttributeValue();
                 $pcvModel->product_id = $productId;
-                $pcvModel->characteristic_id = $characteristicId;
+                $pcvModel->attribute_id = $attributeId;
                 $pcvModel->value = $pureValue;
                 $pcvModel->saveOrFail();
             }

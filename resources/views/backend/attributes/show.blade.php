@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-12">
-            <a href="{{ route('admin.characteristics.edit', ['id' => $characteristic->id]) }}" class="btn btn-sm btn-warning" data-toggle="tooltip" title="{{ __('Edit') }}">
+            <a href="{{ route('admin.attributes.edit', ['id' => $attribute->id]) }}" class="btn btn-sm btn-warning" data-toggle="tooltip" title="{{ __('Edit') }}">
                 {{ __('Edit') }}
             </a>
         </div>
@@ -17,27 +17,27 @@
                 <tbody>
                     <tr>
                         <th>{{ __('Name') }}</th>
-                        <td>{{ $characteristic->name }}</td>
+                        <td>{{ $attribute->name }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Type') }}</th>
-                        <td>{{ \App\Enums\ECharacteristicTypes::getLabel($characteristic->type) }}</td>
+                        <td>{{ \App\Enums\EAttributeTypes::getLabel($attribute->type) }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Required') }}</th>
-                        <td>{{ \App\Enums\EBool::getLabel($characteristic->is_required) }}</td>
+                        <td>{{ \App\Enums\EBool::getLabel($attribute->is_required) }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Default value') }}</th>
-                        <td>{{ strlen($characteristic->default_value) > 0 ? $characteristic->default_value : '-' }}</td>
+                        <td>{{ strlen($attribute->default_value) > 0 ? $attribute->default_value : '-' }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Variants') }}</th>
-                        <td>{{ $characteristic->variants }}</td>
+                        <td>{{ $attribute->variants }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Sort') }}</th>
-                        <td>{{ $characteristic->sort }}</td>
+                        <td>{{ $attribute->sort }}</td>
                     </tr>
                 </tbody>
             </table>

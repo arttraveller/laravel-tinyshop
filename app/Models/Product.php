@@ -84,7 +84,7 @@ class Product extends ShopModel
      */
     public function categories()
     {
-        return $this->belongsToMany('App\Models\Category', 'shop_products_to_categories');
+        return $this->belongsToMany('App\Models\Category', 'shop_products_categories');
     }
 
 
@@ -95,18 +95,18 @@ class Product extends ShopModel
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag', 'shop_products_to_tags');
+        return $this->belongsToMany('App\Models\Tag', 'shop_products_tags');
     }
 
 
     /**
-     * The characteristics values.
+     * The attributes values.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function characteristicsValues()
+    public function attributesValues()
     {
-        return $this->hasMany('App\Models\ProductCharacteristicValue');
+        return $this->hasMany('App\Models\ProductAttributeValue');
     }
 
 

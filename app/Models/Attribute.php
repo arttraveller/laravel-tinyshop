@@ -5,7 +5,7 @@ namespace App\Models;
 use Kyslik\ColumnSortable\Sortable;
 
 /**
- * Characteristic model
+ * Attribute model
  *
  * @property int $id
  * @property string $name
@@ -15,7 +15,7 @@ use Kyslik\ColumnSortable\Sortable;
  * @property string $variants
  * @property int $sort
  */
-class Characteristic extends ShopModel
+class Attribute extends ShopModel
 {
 
     use Sortable;
@@ -37,11 +37,11 @@ class Characteristic extends ShopModel
     /**
      * {@inheritdoc}
      */
-    protected $table = 'shop_characteristics';
+    protected $table = 'shop_attributes';
 
 
     /**
-     * Does the characteristic has variants.
+     * Does the attribute has variants.
      *
      * @return bool
      */

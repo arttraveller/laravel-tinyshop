@@ -20,7 +20,6 @@ class CreateShopProductsTable extends Migration
             $table->string('name')->index();
             $table->text('description')->nullable();
             $table->integer('status')->index();
-            $table->bigInteger('main_category_id');
             $table->bigInteger('brand_id')->index();
             $table->decimal('old_price', 10, 2)->nullable();
             $table->decimal('price', 10, 2)->nullable()->index();
@@ -32,8 +31,6 @@ class CreateShopProductsTable extends Migration
 
             $table->timestamps();
 
-            // FK
-            $table->foreign('main_category_id')->references('id')->on('shop_categories')->onDelete('RESTRICT');
             $table->foreign('brand_id')->references('id')->on('shop_brands')->onDelete('RESTRICT');
         });
     }

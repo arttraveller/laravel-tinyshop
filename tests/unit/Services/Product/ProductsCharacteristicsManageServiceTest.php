@@ -1,25 +1,25 @@
 <?php
 
 use App\Models\Brand;
-use App\Models\Characteristic;
+use App\Models\Attribute;
 use App\Models\Product;
-use App\Models\ProductCharacteristicValue;
-use App\Services\Product\ProductsCharacteristicsManageService;
+use App\Models\ProductAttributeValue;
+use App\Services\Product\ProductsAttributesManageService;
 use Tests\unit\BaseUnit;
 
-class ProductsCharacteristicsManageServiceTest extends BaseUnit
+class ProductsAttributesManageServiceTest extends BaseUnit
 {
     public function testSetValue()
     {
         $brand = $this->tester->have(Brand::class);
         $product = $this->tester->have(Product::class);
-        $characteristic = $this->tester->have(Characteristic::class);
+        $attribute = $this->tester->have(Attribute::class);
 
-        (new ProductsCharacteristicsManageService())->setValue($product->id, $characteristic->id, '12345');
+        (new ProductsAttributesManageService())->setValue($product->id, $attribute->id, '12345');
 
-        $this->tester->seeRecord(ProductCharacteristicValue::class, [
+        $this->tester->seeRecord(ProductAttributeValue::class, [
             'product_id' => $product->id,
-            'characteristic_id' => $characteristic->id,
+            'attribute_id' => $attribute->id,
         ]);
     }
 }

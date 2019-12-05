@@ -5,7 +5,7 @@ namespace App\Http\Requests\Backend;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CharacteristicsRequest extends FormRequest
+class AttributesRequest extends FormRequest
 {
 
     /**
@@ -27,7 +27,7 @@ class CharacteristicsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:2', 'max:255', Rule::unique('shop_characteristics')->ignore($this->characteristic)],
+            'name' => ['required', 'string', 'min:2', 'max:255', Rule::unique('shop_attributes')->ignore($this->attribute)],
             'type' => ['required', 'integer'],
             'is_required' => ['required', 'boolean'],
             'default_value' => ['string', 'nullable', 'max:255'],

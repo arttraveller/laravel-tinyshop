@@ -29,7 +29,7 @@ class ProductToCategory extends ShopModel
     /**
      * {@inheritdoc}
      */
-    protected $table = 'shop_products_to_categories';
+    protected $table = 'shop_products_categories';
 
 
 

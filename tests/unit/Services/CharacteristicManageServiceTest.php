@@ -1,43 +1,43 @@
 <?php
 
-use App\Enums\ECharacteristicTypes;
-use App\Models\Characteristic;
-use App\Services\CharacteristicsManageService;
+use App\Enums\EAttributeTypes;
+use App\Models\Attribute;
+use App\Services\AttributesManageService;
 use Tests\unit\BaseUnit;
 
-class CharacteristicManageServiceTest extends BaseUnit
+class AttributeManageServiceTest extends BaseUnit
 {
 
     public function testCreateWithValidData()
     {
-        $charData = [
-            'name' => 'New characteristic',
-            'type' => ECharacteristicTypes::STRING,
+        $attrData = [
+            'name' => 'New attribute',
+            'type' => EAttributeTypes::STRING,
             'is_required' => '0',
             'default_value' => '',
             'variants' => '"Variant 1\r\nVariant 2"',
             'sort' => '',
         ];
-        $newChar = (new CharacteristicsManageService())->create($charData);
+        $newAttr = (new AttributesManageService())->create($attrData);
 
-        $this->tester->seeRecord(Characteristic::class, [
-            'name' => $charData['name'],
-            'type' => $charData['type'],
+        $this->tester->seeRecord(Attribute::class, [
+            'name' => $attrData['name'],
+            'type' => $attrData['type'],
             'is_required' => false,
-            'variants' => $charData['variants'],
+            'variants' => $attrData['variants'],
              // Auto set sort
             'sort' => 1,
         ]);
-        expect('new characteristic can be deleted', $newChar->canDelete())->true();
+        expect('new attribute can be deleted', $newAttr->canDelete())->true();
     }
 
 
 
     public function testSuccessfulUpdate()
     {
-        $char = $this->tester->haveRecord(Characteristic::class, [
-            'name' => 'Some characteristic',
-            'type' => ECharacteristicTypes::STRING,
+        $attr = $this->tester->haveRecord(Attribute::class, [
+            'name' => 'Some Attribute',
+            'type' => EAttributeTypes::STRING,
             'is_required' => '0',
             'default_value' => '',
             'variants' => '',
@@ -45,17 +45,17 @@ class CharacteristicManageServiceTest extends BaseUnit
         ]);
 
         $newData = [
-            'name' => 'Updated characteristic',
-            'type' => ECharacteristicTypes::FLOAT,
+            'name' => 'Updated attribute',
+            'type' => EAttributeTypes::FLOAT,
             'is_required' => '1',
             'default_value' => '123.45',
             'variants' => 'test',
             'sort' => 2,
         ];
-        (new CharacteristicsManageService())->update($char, $newData);
+        (new AttributesManageService())->update($attr, $newData);
 
-        $this->tester->seeRecord(Characteristic::class, [
-            'id' => $char->id,
+        $this->tester->seeRecord(Attribute::class, [
+            'id' => $attr->id,
             'name' => $newData['name'],
             'type' => $newData['type'],
             'is_required' => $newData['is_required'],

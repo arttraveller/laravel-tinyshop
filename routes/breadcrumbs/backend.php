@@ -3,7 +3,7 @@
 // Main
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Characteristic;
+use App\Models\Attribute;
 use App\Models\Product;
 use App\Models\Tag;
 
@@ -86,25 +86,25 @@ Breadcrumbs::for('admin.categories.edit', function ($trail, Category $category) 
 });
 
 
-// Characteristics
-Breadcrumbs::for('admin.characteristics.index', function ($trail) {
+// Attributes
+Breadcrumbs::for('admin.attributes.index', function ($trail) {
     $trail->parent('admin.cp_main');
-    $trail->push(__('Characteristics'), route('admin.characteristics.index'));
+    $trail->push(__('Attributes'), route('admin.attributes.index'));
 });
 
-Breadcrumbs::for('admin.characteristics.show', function ($trail, Characteristic $char) {
-    $trail->parent('admin.characteristics.index');
-    $trail->push($char->name, route('admin.characteristics.show', $char));
+Breadcrumbs::for('admin.attributes.show', function ($trail, Attribute $char) {
+    $trail->parent('admin.attributes.index');
+    $trail->push($char->name, route('admin.attributes.show', $char));
 });
 
-Breadcrumbs::for('admin.characteristics.create', function ($trail) {
-    $trail->parent('admin.characteristics.index');
-    $trail->push(__('Create'), route('admin.characteristics.create'));
+Breadcrumbs::for('admin.attributes.create', function ($trail) {
+    $trail->parent('admin.attributes.index');
+    $trail->push(__('Create'), route('admin.attributes.create'));
 });
 
-Breadcrumbs::for('admin.characteristics.edit', function ($trail, Characteristic $char) {
-    $trail->parent('admin.characteristics.index');
-    $trail->push(__('Edit'), route('admin.characteristics.edit', $char));
+Breadcrumbs::for('admin.attributes.edit', function ($trail, Attribute $char) {
+    $trail->parent('admin.attributes.index');
+    $trail->push(__('Edit'), route('admin.attributes.edit', $char));
 });
 
 

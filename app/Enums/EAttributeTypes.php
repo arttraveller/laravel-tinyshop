@@ -3,9 +3,9 @@
 namespace App\Enums;
 
 /**
- * Characteristic types
+ * Attribute types
  */
-class ECharacteristicTypes extends BaseEnum
+class EAttributeTypes extends BaseEnum
 {
 
     const STRING = 1;

@@ -18,9 +18,9 @@ class ProductsManageService
      */
     private $categoriesManager;
     /**
-     * @var ProductsCharacteristicsManageService
+     * @var ProductsAttributesManageService
      */
-    private $characteristicsManager;
+    private $attributesManager;
     /**
      * @var ProductsTagsManageService
      */
@@ -31,11 +31,11 @@ class ProductsManageService
      * @param ProductsTagsManageService $pTagsService
      * @return void
      */
-    public function __construct(ProductsCategoriesManageService $pCategoriesService, ProductsTagsManageService $pTagsService, ProductsCharacteristicsManageService $pCharacteristicsService)
+    public function __construct(ProductsCategoriesManageService $pCategoriesService, ProductsTagsManageService $pTagsService, ProductsAttributesManageService $pAttrsService)
     {
         $this->categoriesManager = $pCategoriesService;
         $this->tagsManager = $pTagsService;
-        $this->characteristicsManager = $pCharacteristicsService;
+        $this->attributesManager = $pAttrsService;
     }
 
 
@@ -93,9 +93,9 @@ class ProductsManageService
                 }
             }
 
-            // 6. Set characteristics
-            foreach ($data['characteristics'] as $charId => $charValue) {
-                $this->characteristicsManager->setValue($newProduct->id, $charId, $charValue);
+            // 6. Set attributes
+            foreach ($data['attributes'] as $attrId => $attrValue) {
+                $this->attributesManager->setValue($newProduct->id, $attrId, $attrValue);
             }
 
             DB::commit();
@@ -164,9 +164,9 @@ class ProductsManageService
                 }
             }
 
-            // 6. Set characteristics
-            foreach ($data['characteristics'] as $charId => $charValue) {
-                $this->characteristicsManager->setValue($product->id, $charId, $charValue);
+            // 6. Set attributes
+            foreach ($data['attributes'] as $attrId => $attrValue) {
+                $this->attributesManager->setValue($product->id, $attrId, $attrValue);
             }
 
             DB::commit();

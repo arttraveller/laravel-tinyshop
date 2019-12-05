@@ -77,22 +77,22 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-                    <div class="card-header bg-secondary text-white">{{ __('Characteristics') }}</div>
+                    <div class="card-header bg-secondary text-white">{{ __('Attributes') }}</div>
                     <div class="card-body">
-                        @foreach ($allCharacteristics as $oneCh)
+                        @foreach ($allAttributes as $oneAttr)
                             @php
-                                $id = $oneCh->id;
-                                $oldValue = old('characteristics.' . $id);
-                                $dbValue = $currentCharacteristics[$id] ?? null;
+                                $id = $oneAttr->id;
+                                $oldValue = old('attributes.' . $id);
+                                $dbValue = $currentAttributes[$id] ?? null;
                                 $fieldValue = $oldValue ? $oldValue : $dbValue;
-                                $inputName = 'characteristics[' . $id . ']';
+                                $inputName = 'attributes[' . $id . ']';
                             @endphp
 
-                            <label for="{{ $inputName }}" class="col-form-label">{{ $oneCh->name }}</label>
+                            <label for="{{ $inputName }}" class="col-form-label">{{ $oneAttr->name }}</label>
 
-                            @if ($oneCh->hasVariants())
+                            @if ($oneAttr->hasVariants())
                                 @php
-                                    $allVariants = array_replace(['' => ''], App\Helpers\Characteristics::getVariantsList($oneCh));
+                                    $allVariants = array_replace(['' => ''], App\Helpers\Attributes::getVariantsList($oneAttr));
                                 @endphp
                                 <select id="{{ $inputName }}" class="form-control" name="{{ $inputName }}">
                                     @foreach ($allVariants as $oneVariant)

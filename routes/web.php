@@ -41,7 +41,7 @@ Route::group(
         Route::resource('brands', 'BrandsController');
         Route::resource('tags', 'TagsController');
         Route::resource('categories', 'CategoriesController');
-        Route::resource('characteristics', 'CharacteristicsController');
+        Route::resource('attributes', 'AttributesController');
         Route::resource('products', 'ProductsController');
     }
 );

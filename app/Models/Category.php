@@ -44,7 +44,7 @@ class Category extends ShopModel
      */
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product', 'shop_products_to_categories');
+        return $this->belongsToMany('App\Models\Product', 'shop_products_categories');
     }
 
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShopProductsToCategoriesTable extends Migration
+class CreateShopProductsCategoriesTable extends Migration
 {
 
     /**
@@ -14,7 +14,7 @@ class CreateShopProductsToCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('shop_products_to_categories', function (Blueprint $table) {
+        Schema::create('shop_products_categories', function (Blueprint $table) {
             $table->bigInteger('product_id')->index();
             $table->bigInteger('category_id')->index();
 
@@ -34,7 +34,7 @@ class CreateShopProductsToCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop_products_to_categories');
+        Schema::dropIfExists('shop_products_categories');
     }
 
 }

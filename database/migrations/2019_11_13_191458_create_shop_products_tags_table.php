@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShopProductsCharacteristicsValuesTable extends Migration
+class CreateShopProductsTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateShopProductsCharacteristicsValuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('shop_products_characteristics_values', function (Blueprint $table) {
+        Schema::create('shop_products_tags', function (Blueprint $table) {
             $table->bigInteger('product_id')->index();
-            $table->bigInteger('characteristic_id')->index();
-            $table->string('value');
+            $table->bigInteger('tag_id')->index();
 
-            $table->primary(['product_id', 'characteristic_id']);
+            $table->primary(['product_id', 'tag_id']);
 
             // FK
             $table->foreign('product_id')->references('id')->on('shop_products')->onDelete('CASCADE');
-            $table->foreign('characteristic_id')->references('id')->on('shop_characteristics')->onDelete('CASCADE');
+            $table->foreign('tag_id')->references('id')->on('shop_tags')->onDelete('CASCADE');
         });
     }
 
@@ -33,6 +32,6 @@ class CreateShopProductsCharacteristicsValuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop_products_characteristics_values');
+        Schema::dropIfExists('shop_products_tags');
     }
 }

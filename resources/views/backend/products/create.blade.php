@@ -6,7 +6,7 @@
         @include('backend.products._form', [
             'allBrands' => $allBrands,
             'allCategories' => $allCategories,
-            'allCharacteristics' => $allCharacteristics,
+            'allAttributes' => $allAttributes,
             'allStatuses' => \App\Enums\EProductStatuses::getLabels(),
 
             'code' => null,
@@ -19,7 +19,7 @@
 
             'currentCategories' => [],
             'currentTags' => [],
-            'currentCharacteristics' => [],
+            'currentAttributes' => [],
 
             'metaTitle' => null,
             'metaDescription' => null,

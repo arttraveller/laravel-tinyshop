@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShopCharacteristicsTable extends Migration
+class CreateShopAttributesTable extends Migration
 {
 
     /**
@@ -14,7 +14,7 @@ class CreateShopCharacteristicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shop_characteristics', function (Blueprint $table) {
+        Schema::create('shop_attributes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->integer('type');
@@ -33,7 +33,7 @@ class CreateShopCharacteristicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shop_characteristics');
+        Schema::dropIfExists('shop_attributes');
     }
 
 }

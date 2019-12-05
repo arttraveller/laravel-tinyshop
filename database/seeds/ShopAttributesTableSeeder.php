@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Characteristic;
+use App\Models\Attribute;
 use Illuminate\Database\Seeder;
 
-class ShopCharacteristicTableSeeder extends Seeder
+class ShopAttributesTableSeeder extends Seeder
 {
 
     /**
@@ -13,7 +13,7 @@ class ShopCharacteristicTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Characteristic::class, 10)->create();
+        factory(Attribute::class, 10)->create();
     }
 
 }

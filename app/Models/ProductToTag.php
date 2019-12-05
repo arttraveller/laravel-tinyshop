@@ -29,7 +29,7 @@ class ProductToTag extends ShopModel
     /**
      * {@inheritdoc}
      */
-    protected $table = 'shop_products_to_tags';
+    protected $table = 'shop_products_tags';
 
 
 

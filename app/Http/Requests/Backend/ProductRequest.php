@@ -53,7 +53,7 @@ class ProductRequest extends FormRequest
             'exist_tags'    => 'array',
             'exist_tags.*'  => 'integer',
             'new_tags'    => ['string', 'nullable', 'min:3', 'max:10000'],
-            'characteristics' => 'array',
+            'attributes' => 'array',
 
             'meta_title' => ['string', 'nullable', 'max:255'],
             'meta_description' => ['string',  'nullable', 'max:255'],

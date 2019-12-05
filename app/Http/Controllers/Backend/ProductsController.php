@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Helpers\Categories;
 use App\Http\Requests\Backend\ProductRequest;
+use App\Models\Attribute;
 use App\Models\Brand;
-use App\Models\Characteristic;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Services\Product\ProductsManageService;
@@ -61,12 +61,12 @@ class ProductsController extends BackendController
         $allBrands = Arr::pluck(Brand::all(), 'name', 'id');
         $allCategories = Categories::pluckAllCategories();
         $allTags = Arr::pluck(Tag::all(), 'name', 'id');
-        $allCharacteristics = Characteristic::all();
+        $allAttributes = Attribute::all();
 
         return view('backend.products.create', [
             'allBrands' => $allBrands,
             'allCategories' => $allCategories,
-            'allCharacteristics' => $allCharacteristics,
+            'allAttributes' => $allAttributes,
             'allTags' => $allTags,
         ]);
     }
@@ -108,19 +108,19 @@ class ProductsController extends BackendController
         $allBrands = Arr::pluck(Brand::all(), 'name', 'id');
         $allCategories = Categories::pluckAllCategories();
         $allTags = Arr::pluck(Tag::all(), 'name', 'id');
-        $allCharacteristics = Characteristic::all();
+        $allAttributes = Attribute::all();
 
-        $currentCharacteristics = [];
-        foreach ($product->characteristicsValues->all() as $pcvModel) {
-            $currentCharacteristics[$pcvModel->characteristic_id] = $pcvModel->value;
+        $currentAttributes = [];
+        foreach ($product->attributesValues->all() as $pavModel) {
+            $currentAttributes[$pavModel->attribute_id] = $pavModel->value;
         }
 
         return view('backend.products.edit', [
             'allBrands' => $allBrands,
             'allCategories' => $allCategories,
-            'allCharacteristics' => $allCharacteristics,
+            'allAttributes' => $allAttributes,
             'allTags' => $allTags,
-            'currentCharacteristics' => $currentCharacteristics,
+            'currentAttributes' => $currentAttributes,
             'product' => $product
         ]);
     }
